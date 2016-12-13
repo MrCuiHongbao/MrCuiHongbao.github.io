@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>云淡天蓝</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2016-12-13T02:07:35.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>CuiHongbao</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2016/12/07/hello-world/"/>
+    <id>http://yoursite.com/2016/12/07/hello-world/</id>
+    <published>2016-12-07T07:04:19.000Z</published>
+    <updated>2016-12-13T02:07:35.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="写作" scheme="http://yoursite.com/tags/%E5%86%99%E4%BD%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于</title>
+    <link href="http://yoursite.com/2016/12/07/About/"/>
+    <id>http://yoursite.com/2016/12/07/About/</id>
+    <published>2016-12-07T07:04:19.000Z</published>
+    <updated>2016-12-13T03:33:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="关于自己"><a href="#关于自己" class="headerlink" title="关于自己"></a>关于自己</h2><p>80后工程师，专职于移动iOS开发，热爱移动开发，最近也在学习android和java相关</p>
+<h3 id="关于爱好"><a href="#关于爱好" class="headerlink" title="关于爱好"></a>关于爱好</h3><p>爱好玩dota游戏，热爱唱歌，性格开朗，也有点儿闷骚</p>
+<h3 id="关于联系方式"><a href="#关于联系方式" class="headerlink" title="关于联系方式"></a>关于联系方式</h3><p>QQ：675282505<br>Email:cuihongbao125@163.com<br>个人订阅号：<img>/Users/Founder/Downloads/qrcode_for_gh_97f0fb6e4fa1_258.jpg</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;关于自己&quot;&gt;&lt;a href=&quot;#关于自己&quot; class=&quot;headerlink&quot; title=&quot;关于自己&quot;&gt;&lt;/a&gt;关于自己&lt;/h2&gt;&lt;p&gt;80后工程师，专职于移动iOS开发，热爱移动开发，最近也在学习android和java相关&lt;/p&gt;
+&lt;h3 id=&quot;关于爱好
+    
+    </summary>
+    
+      <category term="About" scheme="http://yoursite.com/categories/About/"/>
+    
+    
+      <category term="写作" scheme="http://yoursite.com/tags/%E5%86%99%E4%BD%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一些基础的面试题</title>
+    <link href="http://yoursite.com/2016/09/22/%E7%8C%8E%E8%B1%B9_interView/"/>
+    <id>http://yoursite.com/2016/09/22/猎豹_interView/</id>
+    <published>2016-09-22T09:11:59.000Z</published>
+    <updated>2016-12-13T02:53:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>1.retainCount引用问题<br>         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];<br>      label.text = @”retailCount”;<br>      [label autorelease];<br>      NSLog(@”—-label——%ld”,(long)[label retainCount]);// —-label——1<br>      [self.view addSubview:label];<br>      NSLog(@”—-label——%ld”,(long)[label retainCount]);//—-label——2<br>第一处因为label到autorelease处释放，所以retainCount为1，<br>第二处因为self.view对label的持有，所以retainCount＋1为2；</p>
+<pre><code>    注：1.sizeof操作符的结果类型是size_t，它在头文件中typedef为  unsigned int类型。 
+该类型保证能容纳实现所建立的最大对象的字节大小。 
+2.sizeof是算符，strlen是函数。
+3.&lt;font color=red size=5&gt;sizeof可以用类型做参数，strlen只能  用char*做参数，且必须是以&apos;&apos;\0&apos;&apos;结尾的。&lt;/font&gt;
+sizeof还可以用函数做参数，比如： 
+short f(); 
+printf(&quot;%d\n&quot;, sizeof(f())); 
+输出的结果是sizeof(short)，即2。 
+4.数组做sizeof的参数不退化，传递给strlen就退化为指针了。 
+5.大部分编译程序 在编译的时候就把sizeof计算过了 是类型或是变量的长度这就是sizeof(x)可以用来定义数组维数的原因 
+char str[20]=&quot;0123456789&quot;; 
+int a=strlen(str); //a=10; 
+int b=sizeof(str); //而b=20;
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1.retainCount引用问题&lt;br&gt;         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];&lt;br&gt;      label.text = @”re
+    
+    </summary>
+    
+      <category term="iOS面试题" scheme="http://yoursite.com/categories/iOS%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于react-native的demo如何运行起来...</title>
+    <link href="http://yoursite.com/2016/09/19/react-native/"/>
+    <id>http://yoursite.com/2016/09/19/react-native/</id>
+    <published>2016-09-19T07:48:27.000Z</published>
+    <updated>2016-12-13T02:52:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>##1.打开终端输入：git clone <a href="https://github.com/facebook/react-native.git下载完成后，在" target="_blank" rel="external">https://github.com/facebook/react-native.git下载完成后，在</a><br><img src="http://upload-images.jianshu.io/upload_images/2658715-0e28dded6f81eabe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="QQ20160919-0.png">目录中存在下载后的相关文件。</p>
+<p>##2.终端输入：cd react-native &amp;&amp; npm install<br> 出现提示，npm command no found 因为你的mac中 npm没有安装</p>
+<p>###npm是什么？<br>    <li>NPM的全称是Node Package Manager ，是一个NodeJS包管理和分发工具，已经成为了非官方的发布Node模块（包）的标准</li><li></li></p>
+<p>###如何安装npm呢？<br>一：如果你安装了Homebrew<br>如何安装Homebrew见这里：<a href="http://brew.sh/index_zh-cn.html" target="_blank" rel="external">http://brew.sh/index_zh-cn.html</a></p>
+<p>直接使用命令：</p>
+<pre><code>brew install node
+</code></pre><p>二：直接从官网上下载安装<br>点击进入网址，<a href="https://nodejs.org/en/#download" target="_blank" rel="external">https://nodejs.org/en/#download</a><br><img src="http://upload-images.jianshu.io/upload_images/2658715-d79ef78a0d40890d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="QQ20160919-1.png"><br>点击下载“Current”,下载完成后执行*.pkg安装完成即可。<br>安装完成后，就可以运行React-Native Examples下的demo了。<br>ps:如果通过终端命令下载不成功或是下载50%重新下载的导致下载的下载两次的如下图所示：<br><img src="http://upload-images.jianshu.io/upload_images/2658715-1db0da3e691a4f38.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="QQ20160919-2.png"></p>
+<p>则需要删除目录中的react-native，否则运行demo时会出现如下错误</p>
+<pre><code>Failed to build DependencyGraph: @providesModule naming collision:
+ Duplicate module name: AppEventsTest
+ Paths: /Users/Founder/react-native/react-native/IntegrationTests/AppEventsTest.js collides with /Users/Founder/react-native/IntegrationTests/AppEventsTest.js
+ This error is caused by a @providesModule declaration with the same name across two different files.
+ Error: @providesModule naming collision:
+ Duplicate module name: AppEventsTest
+ Paths: /Users/Founder/react-native/react-native/IntegrationTests/AppEventsTest.js collides with /Users/Founder/react-native/IntegrationTests/AppEventsTest.js
+ This error is caused by a @providesModule declaration with the same name across two different files.
+at HasteMap._updateHasteMap (/Users/Founder/react-native/packager/react-packager/src/node-haste/DependencyGraph/HasteMap.js:155:13)
+at module.getName.then.name (/Users/Founder/react-native/packager/react-packager/src/node-haste/DependencyGraph/HasteMap.js:115:31)
+Process terminated. Press &lt;enter&gt; to close the window
+</code></pre><p>如上述步骤，React-Native的demo就可以运行起来了。<br>参考文档：<a href="https://github.com/facebook/react-native" target="_blank" rel="external">facebook_github</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;##1.打开终端输入：git clone &lt;a href=&quot;https://github.com/facebook/react-native.git下载完成后，在&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/face
+    
+    </summary>
+    
+      <category term="原创总结" scheme="http://yoursite.com/categories/%E5%8E%9F%E5%88%9B%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="react-native" scheme="http://yoursite.com/tags/react-native/"/>
+    
+  </entry>
+  
+</feed>
