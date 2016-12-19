@@ -4,14 +4,15 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>云淡天蓝’Blog</title>
+    <title>多线程阻塞 | 云淡天蓝’Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="CuiHongbao">
     
-    <meta name="description" content="title: 多线程tags: GCD Threadcategories: iOS # 配置categories
-###1.第一种情况：dispatch_sync(dispatch_get_main_queue(), ^{}引起死锁
-NSLog输出1后，主队列的同步线程，按照FIFO的原则（先入先出">
+    <meta name="description" content="###1.第一种情况：dispatch_sync(dispatch_get_main_queue(), ^{}引起死锁
+NSLog输出1后，主队列的同步线程，按照FIFO的原则（先入先出），2排在3后面会等3执行完，但因为同步线程，3又要等2执行完，相互等待成为死锁。
+
+(void)deadLock">
     
     
     
@@ -274,7 +275,7 @@ NSLog输出1后，主队列的同步线程，按照FIFO的原则（先入先出"
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/12/07/GCD/" title="" itemprop="url"></a>
+      <a href="/2016/12/07/GCD/" title="多线程阻塞" itemprop="url">多线程阻塞</a>
   </h1>
   <p class="article-author">By
     
@@ -282,7 +283,7 @@ NSLog输出1后，主队列的同步线程，按照FIFO的原则（先入先出"
     </p>
   <p class="article-time">
     <time datetime="2016-12-07T07:04:19.000Z" itemprop="datePublished">2016-12-07</time>
-    更新日期:<time datetime="2016-12-19T06:17:15.000Z" itemprop="dateModified">2016-12-19</time>
+    更新日期:<time datetime="2016-12-19T06:33:01.000Z" itemprop="dateModified">2016-12-19</time>
     
   </p>
 </header>
@@ -294,9 +295,7 @@ NSLog输出1后，主队列的同步线程，按照FIFO的原则（先入先出"
 		
 		</div>
 		
-		<hr>
-<p>title: 多线程<br>tags: GCD Thread<br>categories: iOS # 配置categories</p>
-<p>###1.第一种情况：dispatch_sync(dispatch_get_main_queue(), ^{}引起死锁</p>
+		<p>###1.第一种情况：dispatch_sync(dispatch_get_main_queue(), ^{}引起死锁</p>
 <p>NSLog输出1后，主队列的同步线程，按照FIFO的原则（先入先出），2排在3后面会等3执行完，但因为同步线程，3又要等2执行完，相互等待成为死锁。</p>
 <ul>
 <li><p>(void)deadLockCase1 {</p>
@@ -373,6 +372,16 @@ NSLog输出1后，主队列的同步线程，按照FIFO的原则（先入先出"
 	</div>
 		<footer class="article-footer clearfix">
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/GCD/">GCD</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/iOS/">iOS</a>
+</div>
 
 
 
@@ -415,9 +424,9 @@ NSLog输出1后，主队列的同步线程，按照FIFO的原则（先入先出"
 
 
 <div class="prev">
-<a href="/2016/12/07/Thread/"  title="">
+<a href="/2016/12/07/Thread/"  title="多线程NSThread GCD NSOperation">
  <strong>PREVIOUS:</strong><br/> 
- <span>(no title)
+ <span>多线程NSThread GCD NSOperation
 </span>
 </a>
 </div>
@@ -426,7 +435,7 @@ NSLog输出1后，主队列的同步线程，按照FIFO的原则（先入先出"
 
 
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2016/12/07/GCD/" data-title="" data-url="http://yoursite.com/2016/12/07/GCD/"></div>
+	<div class="ds-thread" data-thread-key="2016/12/07/GCD/" data-title="多线程阻塞" data-url="http://yoursite.com/2016/12/07/GCD/"></div>
 <!-- 多说评论框 end -->
 </div>  
 
@@ -458,6 +467,8 @@ NSLog输出1后，主队列的同步线程，按照FIFO的原则（先入先出"
 		
 			<li><a href="/categories/About/" title="About">About<sup>1</sup></a></li>
 		
+			<li><a href="/categories/iOS/" title="iOS">iOS<sup>2</sup></a></li>
+		
 			<li><a href="/categories/iOS面试题/" title="iOS面试题">iOS面试题<sup>1</sup></a></li>
 		
 			<li><a href="/categories/原创总结/" title="原创总结">原创总结<sup>1</sup></a></li>
@@ -479,11 +490,11 @@ NSLog输出1后，主队列的同步线程，按照FIFO的原则（先入先出"
       </li>
     
       <li>
-        <a href="/2016/12/07/GCD/"></a>
+        <a href="/2016/12/07/GCD/">多线程阻塞</a>
       </li>
     
       <li>
-        <a href="/2016/12/07/Thread/"></a>
+        <a href="/2016/12/07/Thread/">多线程NSThread GCD NSOperation</a>
       </li>
     
       <li>
@@ -511,7 +522,7 @@ NSLog输出1后，主队列的同步线程，按照FIFO的原则（先入先出"
   <div class="tagcloudlist" >
     <p class="asidetitle">标签云</p>
     <div class="tagcloudlist clearfix" >
-       <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/写作/" style="font-size: 20px;">写作</a>
+       <a href="/tags/GCD/" style="font-size: 10px;">GCD</a> <a href="/tags/GCD-Thread/" style="font-size: 10px;">GCD Thread</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/写作/" style="font-size: 20px;">写作</a>
     </div>
   </div>
  

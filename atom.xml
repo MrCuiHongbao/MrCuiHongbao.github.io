@@ -46,15 +46,13 @@
   </entry>
   
   <entry>
-    <title></title>
+    <title>多线程阻塞</title>
     <link href="http://yoursite.com/2016/12/07/GCD/"/>
     <id>http://yoursite.com/2016/12/07/GCD/</id>
     <published>2016-12-07T07:04:19.000Z</published>
-    <updated>2016-12-19T06:17:15.000Z</updated>
+    <updated>2016-12-19T06:33:01.000Z</updated>
     
-    <content type="html"><![CDATA[<hr>
-<p>title: 多线程<br>tags: GCD Thread<br>categories: iOS # 配置categories</p>
-<p>###1.第一种情况：dispatch_sync(dispatch_get_main_queue(), ^{}引起死锁</p>
+    <content type="html"><![CDATA[<p>###1.第一种情况：dispatch_sync(dispatch_get_main_queue(), ^{}引起死锁</p>
 <p>NSLog输出1后，主队列的同步线程，按照FIFO的原则（先入先出），2排在3后面会等3执行完，但因为同步线程，3又要等2执行完，相互等待成为死锁。</p>
 <ul>
 <li><p>(void)deadLockCase1 {</p>
@@ -131,25 +129,26 @@
     
     <summary type="html">
     
-      &lt;hr&gt;
-&lt;p&gt;title: 多线程&lt;br&gt;tags: GCD Thread&lt;br&gt;categories: iOS # 配置categories&lt;/p&gt;
-&lt;p&gt;###1.第一种情况：dispatch_sync(dispatch_get_main_queue(), ^{}引起死锁&lt;
+      &lt;p&gt;###1.第一种情况：dispatch_sync(dispatch_get_main_queue(), ^{}引起死锁&lt;/p&gt;
+&lt;p&gt;NSLog输出1后，主队列的同步线程，按照FIFO的原则（先入先出），2排在3后面会等3执行完，但因为同步线程，3又要等2执行完，相互等待成
     
     </summary>
     
+      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+    
+    
+      <category term="GCD" scheme="http://yoursite.com/tags/GCD/"/>
     
   </entry>
   
   <entry>
-    <title></title>
+    <title>多线程NSThread GCD NSOperation</title>
     <link href="http://yoursite.com/2016/12/07/Thread/"/>
     <id>http://yoursite.com/2016/12/07/Thread/</id>
     <published>2016-12-07T07:04:19.000Z</published>
-    <updated>2016-12-19T06:19:26.000Z</updated>
+    <updated>2016-12-19T06:33:26.000Z</updated>
     
-    <content type="html"><![CDATA[<hr>
-<p>title: 多线程<br>tags: GCD Thread<br>categories: iOS # 配置categories</p>
-<p>####1.NSThread NSOperation,GCD发展的历程是从早到晚的,NSThread是比较轻量级的，NSOperation是对GCD的封装，GCD比较简单易用，也是苹果比较提倡和推荐的一种方式</p>
+    <content type="html"><![CDATA[<p>####1.NSThread NSOperation,GCD发展的历程是从早到晚的,NSThread是比较轻量级的，NSOperation是对GCD的封装，GCD比较简单易用，也是苹果比较提倡和推荐的一种方式</p>
 <p>####2.NSThread控制线程的状态比较复杂，NSThead的创建主要有两种方式：</p>
 <ul>
 <li><p>(instancetype)init NS_AVAILABLE(10_5, 2_0) NS_DESIGNATED_INITIALIZER;</p>
@@ -198,12 +197,15 @@
     
     <summary type="html">
     
-      &lt;hr&gt;
-&lt;p&gt;title: 多线程&lt;br&gt;tags: GCD Thread&lt;br&gt;categories: iOS # 配置categories&lt;/p&gt;
-&lt;p&gt;####1.NSThread NSOperation,GCD发展的历程是从早到晚的,NSThread是比较轻量级的，NS
+      &lt;p&gt;####1.NSThread NSOperation,GCD发展的历程是从早到晚的,NSThread是比较轻量级的，NSOperation是对GCD的封装，GCD比较简单易用，也是苹果比较提倡和推荐的一种方式&lt;/p&gt;
+&lt;p&gt;####2.NSThread控制线程的状态比较复杂
     
     </summary>
     
+      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+    
+    
+      <category term="GCD Thread" scheme="http://yoursite.com/tags/GCD-Thread/"/>
     
   </entry>
   
