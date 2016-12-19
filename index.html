@@ -276,11 +276,10 @@
     <h1 itemprop="name">Delegate  KVO   Notification区别</h1>
     
      
-           <p itemprop="description" >###在iOS开发过程中，类之间的通信通常有三种：
-1.delegate 代理
+           <p itemprop="description" >在iOS开发过程中，类之间的通信通常有三种：1.delegate 代理
 2.Notification 通知
 3.KVO 键值观察者
-####delegate:通常发送者和接收者的关系是一一对应的        1.代理的目的是改变或控制传递链，允许一个类在特定的时间内通知</p>
+delegate:通常发送者和接收者的关系是一一对应的1.代理的目的是改变或控制传递链，允许一个类在特定的时间内通知其他的类，而不需要获取该类的指针</p>
         
     
     <time datetime="2016-12-19T08:03:30.000Z" itemprop="datePublished">2016-12-19</time>
@@ -310,10 +309,9 @@ var duoshuoQuery = {short_name:"voidy"};
     <h1 itemprop="name">多线程阻塞</h1>
     
      
-           <p itemprop="description" >###1.第一种情况：dispatch_sync(dispatch_get_main_queue(), ^{}引起死锁
-NSLog输出1后，主队列的同步线程，按照FIFO的原则（先入先出），2排在3后面会等3执行完，但因为同步线程，3又要等2执行完，相互等待成为死锁。
+           <p itemprop="description" >1.第一种情况：dispatch_sync(dispatch_get_main_queue(), ^{}引起死锁NSLog输出1后，主队列的同步线程，按照FIFO的原则（先入先出），2排在3后面会等3执行完，但因为同步线程，3又要等2执行完，相互等待成为死锁。
 
-(voi</p>
+(void)de</p>
         
     
     <time datetime="2016-12-07T07:04:19.000Z" itemprop="datePublished">2016-12-07</time>
@@ -343,8 +341,7 @@ var duoshuoQuery = {short_name:"voidy"};
     <h1 itemprop="name">多线程NSThread GCD NSOperation</h1>
     
      
-           <p itemprop="description" >####1.NSThread NSOperation,GCD发展的历程是从早到晚的,NSThread是比较轻量级的，NSOperation是对GCD的封装，GCD比较简单易用，也是苹果比较提倡和推荐的一种方式
-####2.NSThread控制线程的状态比较复杂，NSThead的创</p>
+           <p itemprop="description" >1.NSThread NSOperation,GCD发展的历程是从早到晚的,NSThread是比较轻量级的，NSOperation是对GCD的封装，GCD比较简单易用，也是苹果比较提倡和推荐的一种方式2.NSThread控制线程的状态比较复杂，NSThead的创建主要有两种方式：</p>
         
     
     <time datetime="2016-12-07T07:04:19.000Z" itemprop="datePublished">2016-12-07</time>

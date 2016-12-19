@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-19T09:50:15.000Z</updated>
+  <updated>2016-12-19T11:41:30.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,17 +20,15 @@
     <link href="http://yoursite.com/2016/12/19/Delegate_KVO_Notification/"/>
     <id>http://yoursite.com/2016/12/19/Delegate_KVO_Notification/</id>
     <published>2016-12-19T08:03:30.000Z</published>
-    <updated>2016-12-19T09:50:15.000Z</updated>
+    <updated>2016-12-19T11:41:30.000Z</updated>
     
-    <content type="html"><![CDATA[<p>###在iOS开发过程中，类之间的通信通常有三种：</p>
-<pre><code>1.delegate 代理
+    <content type="html"><![CDATA[<h4 id="在iOS开发过程中，类之间的通信通常有三种："><a href="#在iOS开发过程中，类之间的通信通常有三种：" class="headerlink" title="在iOS开发过程中，类之间的通信通常有三种："></a>在iOS开发过程中，类之间的通信通常有三种：</h4><pre><code>1.delegate 代理
 2.Notification 通知
 3.KVO 键值观察者
-</code></pre><p>####delegate:通常发送者和接收者的关系是<font color="red">一一</font>对应的<br>        1.代理的目的是改变或控制传递链，允许一个类在特定的时间内通知其他的类，而不需要获取该类的指针.<br>        2.可以减少框架的复杂度，消息的发送着(sender)和消息的接收者(Receiver)对某个事件的委托,如按钮的点击实现实现的代理</p>
-<p>####Notification:观察者模式，<font color="red">一对多</font>，通常发送者和接收者是多对多的关系，发送者不关心消息是否送达，接收者也不能影响发送者的行为</p>
-<p>####KVO:观察者模式,键值观察机制，<font color="red">一对多</font>，提供观察者某一属性的变化，极大的简化了代码</p>
-<p>###区别</p>
-<p>Delgate:</p>
+</code></pre><h4 id="delegate-通常发送者和接收者的关系是一一对应的"><a href="#delegate-通常发送者和接收者的关系是一一对应的" class="headerlink" title="delegate:通常发送者和接收者的关系是一一对应的"></a>delegate:通常发送者和接收者的关系是<font color="red">一一</font>对应的</h4><pre><code>1.代理的目的是改变或控制传递链，允许一个类在特定的时间内通知其他的类，而不需要获取该类的指针.
+2.可以减少框架的复杂度，消息的发送着(sender)和消息的接收者(Receiver)对某个事件的委托,如按钮的点击实现实现的代理
+</code></pre><h4 id="Notification-观察者模式，一对多，通常发送者和接收者是多对多的关系，发送者不关心消息是否送达，接收者也不能影响发送者的行为"><a href="#Notification-观察者模式，一对多，通常发送者和接收者是多对多的关系，发送者不关心消息是否送达，接收者也不能影响发送者的行为" class="headerlink" title="Notification:观察者模式，一对多，通常发送者和接收者是多对多的关系，发送者不关心消息是否送达，接收者也不能影响发送者的行为"></a>Notification:观察者模式，<font color="red">一对多</font>，通常发送者和接收者是多对多的关系，发送者不关心消息是否送达，接收者也不能影响发送者的行为</h4><p>####KVO:观察者模式,键值观察机制，<font color="red">一对多</font>，提供观察者某一属性的变化，极大的简化了代码</p>
+<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><p>Delgate:</p>
 <pre><code>1.delegate的效率比Notification效率高，delegate只是调用时寻找回调地址,NSNotification常驻内存
 2.delegate是一对一对应的
 3.delegate代码规范，严谨，如协议的定义和实现
@@ -51,11 +49,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;###在iOS开发过程中，类之间的通信通常有三种：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;1.delegate 代理
-2.Notification 通知
-3.KVO 键值观察者
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;####delegate:通常发送者和接收者的关系是&lt;font colo
+      &lt;h4 id=&quot;在iOS开发过程中，类之间的通信通常有三种：&quot;&gt;&lt;a href=&quot;#在iOS开发过程中，类之间的通信通常有三种：&quot; class=&quot;headerlink&quot; title=&quot;在iOS开发过程中，类之间的通信通常有三种：&quot;&gt;&lt;/a&gt;在iOS开发过程中，类之间的通信通常有三
     
     </summary>
     
@@ -71,10 +65,9 @@
     <link href="http://yoursite.com/2016/12/07/GCD/"/>
     <id>http://yoursite.com/2016/12/07/GCD/</id>
     <published>2016-12-07T07:04:19.000Z</published>
-    <updated>2016-12-19T06:33:01.000Z</updated>
+    <updated>2016-12-19T11:40:27.000Z</updated>
     
-    <content type="html"><![CDATA[<p>###1.第一种情况：dispatch_sync(dispatch_get_main_queue(), ^{}引起死锁</p>
-<p>NSLog输出1后，主队列的同步线程，按照FIFO的原则（先入先出），2排在3后面会等3执行完，但因为同步线程，3又要等2执行完，相互等待成为死锁。</p>
+    <content type="html"><![CDATA[<h3 id="1-第一种情况：dispatch-sync-dispatch-get-main-queue-引起死锁"><a href="#1-第一种情况：dispatch-sync-dispatch-get-main-queue-引起死锁" class="headerlink" title="1.第一种情况：dispatch_sync(dispatch_get_main_queue(), ^{}引起死锁"></a>1.第一种情况：dispatch_sync(dispatch_get_main_queue(), ^{}引起死锁</h3><p>NSLog输出1后，主队列的同步线程，按照FIFO的原则（先入先出），2排在3后面会等3执行完，但因为同步线程，3又要等2执行完，相互等待成为死锁。</p>
 <ul>
 <li><p>(void)deadLockCase1 {</p>
 <p>  NSLog(@”1”);</p>
@@ -97,8 +90,7 @@
 <p>});</p>
 <p>NSLog(@”3”);</p>
 <p>}</p>
-<p>###2.第二种情况:</p>
-<ul>
+<h3 id="2-第二种情况"><a href="#2-第二种情况" class="headerlink" title="2.第二种情况:"></a>2.第二种情况:</h3><ul>
 <li>(void)deadLockCase2 {</li>
 </ul>
 <p>dispatch_queue_t serialQueue = dispatch_queue_create(“com.starming.gcddemo.serialqueue”, DISPATCH_QUEUE_SERIAL);</p>
@@ -128,8 +120,7 @@
 <p>});</p>
 <p>NSLog(@”5”);</p>
 <p>}</p>
-<p>###3.第三种情况，死循环</p>
-<ul>
+<h3 id="3-第三种情况，死循环"><a href="#3-第三种情况，死循环" class="headerlink" title="3.第三种情况，死循环"></a>3.第三种情况，死循环</h3><ul>
 <li>(void)deadLockCase3 {</li>
 </ul>
 <p>dispatch_async(dispatch_get_global_queue(0, 0), ^{</p>
@@ -150,8 +141,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;###1.第一种情况：dispatch_sync(dispatch_get_main_queue(), ^{}引起死锁&lt;/p&gt;
-&lt;p&gt;NSLog输出1后，主队列的同步线程，按照FIFO的原则（先入先出），2排在3后面会等3执行完，但因为同步线程，3又要等2执行完，相互等待成
+      &lt;h3 id=&quot;1-第一种情况：dispatch-sync-dispatch-get-main-queue-引起死锁&quot;&gt;&lt;a href=&quot;#1-第一种情况：dispatch-sync-dispatch-get-main-queue-引起死锁&quot; class=&quot;headerlink&quot;
     
     </summary>
     
@@ -167,11 +157,9 @@
     <link href="http://yoursite.com/2016/12/07/Thread/"/>
     <id>http://yoursite.com/2016/12/07/Thread/</id>
     <published>2016-12-07T07:04:19.000Z</published>
-    <updated>2016-12-19T06:33:26.000Z</updated>
+    <updated>2016-12-19T11:40:48.000Z</updated>
     
-    <content type="html"><![CDATA[<p>####1.NSThread NSOperation,GCD发展的历程是从早到晚的,NSThread是比较轻量级的，NSOperation是对GCD的封装，GCD比较简单易用，也是苹果比较提倡和推荐的一种方式</p>
-<p>####2.NSThread控制线程的状态比较复杂，NSThead的创建主要有两种方式：</p>
-<ul>
+    <content type="html"><![CDATA[<h4 id="1-NSThread-NSOperation-GCD发展的历程是从早到晚的-NSThread是比较轻量级的，NSOperation是对GCD的封装，GCD比较简单易用，也是苹果比较提倡和推荐的一种方式"><a href="#1-NSThread-NSOperation-GCD发展的历程是从早到晚的-NSThread是比较轻量级的，NSOperation是对GCD的封装，GCD比较简单易用，也是苹果比较提倡和推荐的一种方式" class="headerlink" title="1.NSThread NSOperation,GCD发展的历程是从早到晚的,NSThread是比较轻量级的，NSOperation是对GCD的封装，GCD比较简单易用，也是苹果比较提倡和推荐的一种方式"></a>1.NSThread NSOperation,GCD发展的历程是从早到晚的,NSThread是比较轻量级的，NSOperation是对GCD的封装，GCD比较简单易用，也是苹果比较提倡和推荐的一种方式</h4><h4 id="2-NSThread控制线程的状态比较复杂，NSThead的创建主要有两种方式："><a href="#2-NSThread控制线程的状态比较复杂，NSThead的创建主要有两种方式：" class="headerlink" title="2.NSThread控制线程的状态比较复杂，NSThead的创建主要有两种方式："></a>2.NSThread控制线程的状态比较复杂，NSThead的创建主要有两种方式：</h4><ul>
 <li><p>(instancetype)init NS_AVAILABLE(10_5, 2_0) NS_DESIGNATED_INITIALIZER;</p>
 </li>
 <li><p>(instancetype)initWithTarget:(id)target selector:(SEL)selector object:(nullable id)argument NS_AVAILABLE(10_5, 2_0);<br>当然，还有一种比较特殊，就是使用所谓的convenient method，这个方法可以直接生成一个线程并启动它，而且无需为线程的清理负责。这个方法的接口是：</p>
@@ -183,14 +171,12 @@
 <ul>
 <li>(void)start;</li>
 </ul>
-<p>####3.NSOperation有一个“线程池”（NSOperationQueue）的概念,他可以设置最大线程数和线程彼此间的依赖的关系，比较容易控制优先级。</p>
-<p>使用NSOperation⼦类的方式有3种：</p>
+<h4 id="3-NSOperation有一个“线程池”（NSOperationQueue）的概念-他可以设置最大线程数和线程彼此间的依赖的关系，比较容易控制优先级。"><a href="#3-NSOperation有一个“线程池”（NSOperationQueue）的概念-他可以设置最大线程数和线程彼此间的依赖的关系，比较容易控制优先级。" class="headerlink" title="3.NSOperation有一个“线程池”（NSOperationQueue）的概念,他可以设置最大线程数和线程彼此间的依赖的关系，比较容易控制优先级。"></a>3.NSOperation有一个“线程池”（NSOperationQueue）的概念,他可以设置最大线程数和线程彼此间的依赖的关系，比较容易控制优先级。</h4><p>使用NSOperation⼦类的方式有3种：</p>
 <p>（1）NSInvocationOperation</p>
 <p>（2）NSBlockOperation</p>
 <p>（3）自定义子类继承NSOperation,实现内部相应的⽅法</p>
 <p>注意：操作对象默认在主线程中执行，只有添加到队列中才会开启新的线程。即默认情况下，如果操作没有放到队列中queue中，都是同步执行。只有将NSOperation放到一个NSOperationQueue中,才会异步执行操作</p>
-<p>####4.GCD有一个类似NSOperationQueue的队列dispatch_queue_t，GCD中的队列分为串行和并行队列</p>
-<p>串行队列：只有一个线程，加入到队列中的操作按添加顺序依次执行</p>
+<h4 id="4-GCD有一个类似NSOperationQueue的队列dispatch-queue-t，GCD中的队列分为串行和并行队列"><a href="#4-GCD有一个类似NSOperationQueue的队列dispatch-queue-t，GCD中的队列分为串行和并行队列" class="headerlink" title="4.GCD有一个类似NSOperationQueue的队列dispatch_queue_t，GCD中的队列分为串行和并行队列"></a>4.GCD有一个类似NSOperationQueue的队列dispatch_queue_t，GCD中的队列分为串行和并行队列</h4><p>串行队列：只有一个线程，加入到队列中的操作按添加顺序依次执行</p>
 <p>dispatch_queue_t queue_s = dispatch_queue_create(“myQueue”, DISPATCH_QUEUE_SERIAL);<br>并行队列：有多个线程，操作进来之后它会将这些队列安排在可用的处理器上，同时保证先进来的任务优先处理。</p>
 <p>dispatch_queue_t queue = dispatch_queue_create(“com.gcd-group.www”, DISPATCH_QUEUE_CONCURRENT);<br>GCD还有一个队列组dispatch_group_t</p>
 <p>dispatch_group_t group = dispatch_group_create();<br>举例：</p>
@@ -218,8 +204,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;####1.NSThread NSOperation,GCD发展的历程是从早到晚的,NSThread是比较轻量级的，NSOperation是对GCD的封装，GCD比较简单易用，也是苹果比较提倡和推荐的一种方式&lt;/p&gt;
-&lt;p&gt;####2.NSThread控制线程的状态比较复杂
+      &lt;h4 id=&quot;1-NSThread-NSOperation-GCD发展的历程是从早到晚的-NSThread是比较轻量级的，NSOperation是对GCD的封装，GCD比较简单易用，也是苹果比较提倡和推荐的一种方式&quot;&gt;&lt;a href=&quot;#1-NSThread-NSOperati
     
     </summary>
     

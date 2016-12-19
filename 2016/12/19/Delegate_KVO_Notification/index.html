@@ -9,11 +9,11 @@
     
     <meta name="author" content="CuiHongbao">
     
-    <meta name="description" content="###在iOS开发过程中，类之间的通信通常有三种：
-1.delegate 代理
+    <meta name="description" content="在iOS开发过程中，类之间的通信通常有三种：1.delegate 代理
 2.Notification 通知
 3.KVO 键值观察者
-####delegate:通常发送者和接收者的关系是一一对应的        1.代理的目的是改变或控制传递链，允许一个类在特定的时间内通知其他的类，而不需要获">
+delegate:通常发送者和接收者的关系是一一对应的1.代理的目的是改变或控制传递链，允许一个类在特定的时间内通知其他的类，而不需要获取该类的指针.
+2.可以减少框架">
     
     
     
@@ -284,7 +284,7 @@
     </p>
   <p class="article-time">
     <time datetime="2016-12-19T08:03:30.000Z" itemprop="datePublished">2016-12-19</time>
-    更新日期:<time datetime="2016-12-19T09:50:15.000Z" itemprop="dateModified">2016-12-19</time>
+    更新日期:<time datetime="2016-12-19T11:41:30.000Z" itemprop="dateModified">2016-12-19</time>
     
   </p>
 </header>
@@ -293,18 +293,16 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		
+		<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#在iOS开发过程中，类之间的通信通常有三种："><span class="toc-number">1.</span> <span class="toc-text">在iOS开发过程中，类之间的通信通常有三种：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#delegate-通常发送者和接收者的关系是一一对应的"><span class="toc-number">2.</span> <span class="toc-text">delegate:通常发送者和接收者的关系是一一对应的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Notification-观察者模式，一对多，通常发送者和接收者是多对多的关系，发送者不关心消息是否送达，接收者也不能影响发送者的行为"><span class="toc-number">3.</span> <span class="toc-text">Notification:观察者模式，一对多，通常发送者和接收者是多对多的关系，发送者不关心消息是否送达，接收者也不能影响发送者的行为</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#区别"><span class="toc-number">4.</span> <span class="toc-text">区别</span></a></li></ol>
 		</div>
 		
-		<p>###在iOS开发过程中，类之间的通信通常有三种：</p>
-<pre><code>1.delegate 代理
+		<h4 id="在iOS开发过程中，类之间的通信通常有三种："><a href="#在iOS开发过程中，类之间的通信通常有三种：" class="headerlink" title="在iOS开发过程中，类之间的通信通常有三种："></a>在iOS开发过程中，类之间的通信通常有三种：</h4><pre><code>1.delegate 代理
 2.Notification 通知
 3.KVO 键值观察者
-</code></pre><p>####delegate:通常发送者和接收者的关系是<font color="red">一一</font>对应的<br>        1.代理的目的是改变或控制传递链，允许一个类在特定的时间内通知其他的类，而不需要获取该类的指针.<br>        2.可以减少框架的复杂度，消息的发送着(sender)和消息的接收者(Receiver)对某个事件的委托,如按钮的点击实现实现的代理</p>
-<p>####Notification:观察者模式，<font color="red">一对多</font>，通常发送者和接收者是多对多的关系，发送者不关心消息是否送达，接收者也不能影响发送者的行为</p>
-<p>####KVO:观察者模式,键值观察机制，<font color="red">一对多</font>，提供观察者某一属性的变化，极大的简化了代码</p>
-<p>###区别</p>
-<p>Delgate:</p>
+</code></pre><h4 id="delegate-通常发送者和接收者的关系是一一对应的"><a href="#delegate-通常发送者和接收者的关系是一一对应的" class="headerlink" title="delegate:通常发送者和接收者的关系是一一对应的"></a>delegate:通常发送者和接收者的关系是<font color="red">一一</font>对应的</h4><pre><code>1.代理的目的是改变或控制传递链，允许一个类在特定的时间内通知其他的类，而不需要获取该类的指针.
+2.可以减少框架的复杂度，消息的发送着(sender)和消息的接收者(Receiver)对某个事件的委托,如按钮的点击实现实现的代理
+</code></pre><h4 id="Notification-观察者模式，一对多，通常发送者和接收者是多对多的关系，发送者不关心消息是否送达，接收者也不能影响发送者的行为"><a href="#Notification-观察者模式，一对多，通常发送者和接收者是多对多的关系，发送者不关心消息是否送达，接收者也不能影响发送者的行为" class="headerlink" title="Notification:观察者模式，一对多，通常发送者和接收者是多对多的关系，发送者不关心消息是否送达，接收者也不能影响发送者的行为"></a>Notification:观察者模式，<font color="red">一对多</font>，通常发送者和接收者是多对多的关系，发送者不关心消息是否送达，接收者也不能影响发送者的行为</h4><p>####KVO:观察者模式,键值观察机制，<font color="red">一对多</font>，提供观察者某一属性的变化，极大的简化了代码</p>
+<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><p>Delgate:</p>
 <pre><code>1.delegate的效率比Notification效率高，delegate只是调用时寻找回调地址,NSNotification常驻内存
 2.delegate是一对一对应的
 3.delegate代码规范，严谨，如协议的定义和实现
@@ -393,7 +391,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  
+  <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#在iOS开发过程中，类之间的通信通常有三种："><span class="toc-number">1.</span> <span class="toc-text">在iOS开发过程中，类之间的通信通常有三种：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#delegate-通常发送者和接收者的关系是一一对应的"><span class="toc-number">2.</span> <span class="toc-text">delegate:通常发送者和接收者的关系是一一对应的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Notification-观察者模式，一对多，通常发送者和接收者是多对多的关系，发送者不关心消息是否送达，接收者也不能影响发送者的行为"><span class="toc-number">3.</span> <span class="toc-text">Notification:观察者模式，一对多，通常发送者和接收者是多对多的关系，发送者不关心消息是否送达，接收者也不能影响发送者的行为</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#区别"><span class="toc-number">4.</span> <span class="toc-text">区别</span></a></li></ol>
   </div>
 
 <div id="asidepart">
