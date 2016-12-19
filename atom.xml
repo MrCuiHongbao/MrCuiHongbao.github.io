@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-16T09:52:16.000Z</updated>
+  <updated>2016-12-19T06:33:01.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,36 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>关于</title>
-    <link href="http://yoursite.com/2016/12/07/About/"/>
-    <id>http://yoursite.com/2016/12/07/About/</id>
-    <published>2016-12-07T07:04:19.000Z</published>
-    <updated>2016-12-16T09:52:16.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="关于自己"><a href="#关于自己" class="headerlink" title="关于自己"></a>关于自己</h2><p>80后工程师，专职于移动iOS开发，热爱移动开发，最近也在学习android和java相关</p>
-<h3 id="关于爱好"><a href="#关于爱好" class="headerlink" title="关于爱好"></a>关于爱好</h3><p>爱好玩dota游戏，热爱唱歌，性格开朗，也有点儿闷骚</p>
-<h3 id="关于生活"><a href="#关于生活" class="headerlink" title="关于生活"></a>关于生活</h3><p>热爱生活积极向上，现在有个可爱的宝宝，虽然压力很大但是很幸福….</p>
-<h3 id="关于联系方式"><a href="#关于联系方式" class="headerlink" title="关于联系方式"></a>关于联系方式</h3><p>QQ：675282505</p>
-<p>Email:cuihongbao125@163.com</p>
-<p>个人订阅号：</p>
-<p><img src="https://raw.githubusercontent.com/MrCuiHongbao/MrCuiHongbao.github.io/master/img/qrcode_for_gh_97f0fb6e4fa1_258.jpg" alt="订阅号"></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;关于自己&quot;&gt;&lt;a href=&quot;#关于自己&quot; class=&quot;headerlink&quot; title=&quot;关于自己&quot;&gt;&lt;/a&gt;关于自己&lt;/h2&gt;&lt;p&gt;80后工程师，专职于移动iOS开发，热爱移动开发，最近也在学习android和java相关&lt;/p&gt;
-&lt;h3 id=&quot;关于爱好
-    
-    </summary>
-    
-      <category term="About" scheme="http://yoursite.com/categories/About/"/>
-    
-    
-      <category term="写作" scheme="http://yoursite.com/tags/%E5%86%99%E4%BD%9C/"/>
-    
-  </entry>
   
   <entry>
     <title>多线程阻塞</title>
@@ -315,6 +285,36 @@ Process terminated. Press &lt;enter&gt; to close the window
     
     
       <category term="react-native" scheme="http://yoursite.com/tags/react-native/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于</title>
+    <link href="http://yoursite.com/2016/01/01/About/"/>
+    <id>http://yoursite.com/2016/01/01/About/</id>
+    <published>2015-12-31T16:00:00.000Z</published>
+    <updated>2016-12-19T06:36:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="关于自己"><a href="#关于自己" class="headerlink" title="关于自己"></a>关于自己</h2><p>80后工程师，专职于移动iOS开发，热爱移动开发，最近也在学习android和java相关</p>
+<h3 id="关于爱好"><a href="#关于爱好" class="headerlink" title="关于爱好"></a>关于爱好</h3><p>爱好玩dota游戏，热爱唱歌，性格开朗，也有点儿闷骚</p>
+<h3 id="关于生活"><a href="#关于生活" class="headerlink" title="关于生活"></a>关于生活</h3><p>热爱生活积极向上，现在有个可爱的宝宝，虽然压力很大但是很幸福….</p>
+<h3 id="关于联系方式"><a href="#关于联系方式" class="headerlink" title="关于联系方式"></a>关于联系方式</h3><p>QQ：675282505</p>
+<p>Email:cuihongbao125@163.com</p>
+<p>个人订阅号：</p>
+<p><img src="https://raw.githubusercontent.com/MrCuiHongbao/MrCuiHongbao.github.io/master/img/qrcode_for_gh_97f0fb6e4fa1_258.jpg" alt="订阅号"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;关于自己&quot;&gt;&lt;a href=&quot;#关于自己&quot; class=&quot;headerlink&quot; title=&quot;关于自己&quot;&gt;&lt;/a&gt;关于自己&lt;/h2&gt;&lt;p&gt;80后工程师，专职于移动iOS开发，热爱移动开发，最近也在学习android和java相关&lt;/p&gt;
+&lt;h3 id=&quot;关于爱好
+    
+    </summary>
+    
+      <category term="About" scheme="http://yoursite.com/categories/About/"/>
+    
+    
+      <category term="写作" scheme="http://yoursite.com/tags/%E5%86%99%E4%BD%9C/"/>
     
   </entry>
   
