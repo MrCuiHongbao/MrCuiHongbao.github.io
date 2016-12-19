@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-19T06:33:01.000Z</updated>
+  <updated>2016-12-19T09:50:15.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,57 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Delegate  KVO   Notification区别</title>
+    <link href="http://yoursite.com/2016/12/19/Delegate_KVO_Notification/"/>
+    <id>http://yoursite.com/2016/12/19/Delegate_KVO_Notification/</id>
+    <published>2016-12-19T08:03:30.000Z</published>
+    <updated>2016-12-19T09:50:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>###在iOS开发过程中，类之间的通信通常有三种：</p>
+<pre><code>1.delegate 代理
+2.Notification 通知
+3.KVO 键值观察者
+</code></pre><p>####delegate:通常发送者和接收者的关系是<font color="red">一一</font>对应的<br>        1.代理的目的是改变或控制传递链，允许一个类在特定的时间内通知其他的类，而不需要获取该类的指针.<br>        2.可以减少框架的复杂度，消息的发送着(sender)和消息的接收者(Receiver)对某个事件的委托,如按钮的点击实现实现的代理</p>
+<p>####Notification:观察者模式，<font color="red">一对多</font>，通常发送者和接收者是多对多的关系，发送者不关心消息是否送达，接收者也不能影响发送者的行为</p>
+<p>####KVO:观察者模式,键值观察机制，<font color="red">一对多</font>，提供观察者某一属性的变化，极大的简化了代码</p>
+<p>###区别</p>
+<p>Delgate:</p>
+<pre><code>1.delegate的效率比Notification效率高，delegate只是调用时寻找回调地址,NSNotification常驻内存
+2.delegate是一对一对应的
+3.delegate代码规范，严谨，如协议的定义和实现
+4.一个类中可以实现多个协议，每个协议对应不通的delegate，如UITableViewDelegate,UITextFieldDelegate
+5.delegate的定义和实现比较复杂，如协议，delegate属性
+</code></pre><p>Notification:</p>
+<pre><code>1.实现简单，不需要太复杂的代码
+2.notification是一对多关系，一个对象发出通知，多个对象反应，发送者不关心接收者是否收到通知，接收者不能影响发送者的发送状态
+3.notification释放对象的时候需要在注册中心释放，不释放即常驻内存
+4.在调试的时候一对多时，很难同步跟踪多个对象
+5.通知发出后，发送者不能收到接收者的任何反馈..
+</code></pre><p>KVO</p>
+<pre><code>1.能够提供一种简单方法实现两个对象间的同步，例如:model和View之间的同步
+2.能够提供属性的现在值和先前值
+3.可以实现一对多
+4.当释放观察者时不需要移除观察者
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;###在iOS开发过程中，类之间的通信通常有三种：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1.delegate 代理
+2.Notification 通知
+3.KVO 键值观察者
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;####delegate:通常发送者和接收者的关系是&lt;font colo
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+    
+    
+      <category term="Delegate  KVO   Notification" scheme="http://yoursite.com/tags/Delegate-KVO-Notification/"/>
+    
+  </entry>
   
   <entry>
     <title>多线程阻塞</title>

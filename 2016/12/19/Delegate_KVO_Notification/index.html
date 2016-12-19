@@ -4,12 +4,16 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hello World | 云淡天蓝’Blog</title>
+    <title>Delegate  KVO   Notification区别 | 云淡天蓝’Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="CuiHongbao">
     
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in ">
+    <meta name="description" content="###在iOS开发过程中，类之间的通信通常有三种：
+1.delegate 代理
+2.Notification 通知
+3.KVO 键值观察者
+####delegate:通常发送者和接收者的关系是一一对应的        1.代理的目的是改变或控制传递链，允许一个类在特定的时间内通知其他的类，而不需要获">
     
     
     
@@ -272,15 +276,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/02/01/hello-world/" title="Hello World" itemprop="url">Hello World</a>
+      <a href="/2016/12/19/Delegate_KVO_Notification/" title="Delegate  KVO   Notification区别" itemprop="url">Delegate  KVO   Notification区别</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="CuiHongbao">CuiHongbao</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-01-31T16:00:00.000Z" itemprop="datePublished">2016-02-01</time>
-    更新日期:<time datetime="2016-12-19T06:40:44.000Z" itemprop="dateModified">2016-12-19</time>
+    <time datetime="2016-12-19T08:03:30.000Z" itemprop="datePublished">2016-12-19</time>
+    更新日期:<time datetime="2016-12-19T09:50:15.000Z" itemprop="dateModified">2016-12-19</time>
     
   </p>
 </header>
@@ -289,31 +293,47 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+		
 		</div>
 		
-		<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-  
+		<p>###在iOS开发过程中，类之间的通信通常有三种：</p>
+<pre><code>1.delegate 代理
+2.Notification 通知
+3.KVO 键值观察者
+</code></pre><p>####delegate:通常发送者和接收者的关系是<font color="red">一一</font>对应的<br>        1.代理的目的是改变或控制传递链，允许一个类在特定的时间内通知其他的类，而不需要获取该类的指针.<br>        2.可以减少框架的复杂度，消息的发送着(sender)和消息的接收者(Receiver)对某个事件的委托,如按钮的点击实现实现的代理</p>
+<p>####Notification:观察者模式，<font color="red">一对多</font>，通常发送者和接收者是多对多的关系，发送者不关心消息是否送达，接收者也不能影响发送者的行为</p>
+<p>####KVO:观察者模式,键值观察机制，<font color="red">一对多</font>，提供观察者某一属性的变化，极大的简化了代码</p>
+<p>###区别</p>
+<p>Delgate:</p>
+<pre><code>1.delegate的效率比Notification效率高，delegate只是调用时寻找回调地址,NSNotification常驻内存
+2.delegate是一对一对应的
+3.delegate代码规范，严谨，如协议的定义和实现
+4.一个类中可以实现多个协议，每个协议对应不通的delegate，如UITableViewDelegate,UITextFieldDelegate
+5.delegate的定义和实现比较复杂，如协议，delegate属性
+</code></pre><p>Notification:</p>
+<pre><code>1.实现简单，不需要太复杂的代码
+2.notification是一对多关系，一个对象发出通知，多个对象反应，发送者不关心接收者是否收到通知，接收者不能影响发送者的发送状态
+3.notification释放对象的时候需要在注册中心释放，不释放即常驻内存
+4.在调试的时候一对多时，很难同步跟踪多个对象
+5.通知发出后，发送者不能收到接收者的任何反馈..
+</code></pre><p>KVO</p>
+<pre><code>1.能够提供一种简单方法实现两个对象间的同步，例如:model和View之间的同步
+2.能够提供属性的现在值和先前值
+3.可以实现一对多
+4.当释放观察者时不需要移除观察者
+</code></pre>  
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/写作/">写作</a>
+  <span></span> <a href="/tags/Delegate-KVO-Notification/">Delegate  KVO   Notification</a>
   </div>
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/随笔/">随笔</a>
+  <a class="article-category-link" href="/categories/iOS/">iOS</a>
 </div>
 
 
@@ -347,19 +367,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="next" >
- <a href="/2016/09/19/react-native/" title="关于react-native的demo如何运行起来...">
-  <strong>NEXT:</strong><br/>
-  <span>
-  关于react-native的demo如何运行起来...</span>
-</a>
-</div>
-
 
 <div class="prev">
-<a href="/2016/01/01/About/"  title="关于">
+<a href="/2016/12/07/GCD/"  title="多线程阻塞">
  <strong>PREVIOUS:</strong><br/> 
- <span>关于
+ <span>多线程阻塞
 </span>
 </a>
 </div>
@@ -368,7 +380,7 @@
 
 
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2016/02/01/hello-world/" data-title="Hello World" data-url="http://yoursite.com/2016/02/01/hello-world/"></div>
+	<div class="ds-thread" data-thread-key="2016/12/19/Delegate_KVO_Notification/" data-title="Delegate  KVO   Notification区别" data-url="http://yoursite.com/2016/12/19/Delegate_KVO_Notification/"></div>
 <!-- 多说评论框 end -->
 </div>  
 
@@ -381,7 +393,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+  
   </div>
 
 <div id="asidepart">
