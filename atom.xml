@@ -46,6 +46,168 @@
   </entry>
   
   <entry>
+    <title></title>
+    <link href="http://yoursite.com/2016/12/07/GCD/"/>
+    <id>http://yoursite.com/2016/12/07/GCD/</id>
+    <published>2016-12-07T07:04:19.000Z</published>
+    <updated>2016-12-19T06:17:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<hr>
+<p>title: 多线程<br>tags: GCD Thread<br>categories: iOS # 配置categories</p>
+<p>###1.第一种情况：dispatch_sync(dispatch_get_main_queue(), ^{}引起死锁</p>
+<p>NSLog输出1后，主队列的同步线程，按照FIFO的原则（先入先出），2排在3后面会等3执行完，但因为同步线程，3又要等2执行完，相互等待成为死锁。</p>
+<ul>
+<li><p>(void)deadLockCase1 {</p>
+<p>  NSLog(@”1”);</p>
+</li>
+</ul>
+<p>dispatch_sync(dispatch_get_main_queue(), ^{</p>
+<pre><code>  NSLog(@&quot;2&quot;);
+
+});
+
+ NSLog(@&quot;3&quot;);
+</code></pre><p>}<br>解决办法：把同步线程放在全局队列里，即可解决。</p>
+<ul>
+<li>(void)deadLockCase2 {</li>
+</ul>
+<p>NSLog(@”1”);</p>
+<p>//3会等2，因为2在全局并行队列里，不需要等待3，这样2执行完回到主队列，3就开始执行</p>
+<p>dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{</p>
+<p>NSLog(@”2”);</p>
+<p>});</p>
+<p>NSLog(@”3”);</p>
+<p>}</p>
+<p>###2.第二种情况:</p>
+<ul>
+<li>(void)deadLockCase2 {</li>
+</ul>
+<p>dispatch_queue_t serialQueue = dispatch_queue_create(“com.starming.gcddemo.serialqueue”, DISPATCH_QUEUE_SERIAL);</p>
+<p>NSLog(@”1”);</p>
+<p>dispatch_async(serialQueue, ^{//异步线程</p>
+<p>NSLog(@”2”);</p>
+<p>//串行队列里面同步一个串行队列就会死锁</p>
+<p>dispatch_sync(serialQueue, ^{</p>
+<p>NSLog(@”3”);</p>
+<p>});</p>
+<p>NSLog(@”4”);</p>
+<p>});</p>
+<p>NSLog(@”5”);</p>
+<p>}<br>打印结果：1，5，2</p>
+<p>解决办法:</p>
+<ul>
+<li>(void)deadLockCase4 {</li>
+</ul>
+<p>NSLog(@”1”);</p>
+<p>dispatch_async(dispatch_get_global_queue(0, 0), ^{</p>
+<p>NSLog(@”2”);</p>
+<p>//将同步的串行队列放到另外一个线程就能够解决</p>
+<p>dispatch_sync(dispatch_get_main_queue(), ^{</p>
+<p>NSLog(@”3”);</p>
+<p>});</p>
+<p>NSLog(@”4”);</p>
+<p>});</p>
+<p>NSLog(@”5”);</p>
+<p>}</p>
+<p>###3.第三种情况，死循环</p>
+<ul>
+<li>(void)deadLockCase3 {</li>
+</ul>
+<p>dispatch_async(dispatch_get_global_queue(0, 0), ^{</p>
+<p>NSLog(@”1”);</p>
+<p>//回到主线程发现死循环后面就没法执行了</p>
+<p>dispatch_sync(dispatch_get_main_queue(), ^{</p>
+<p>NSLog(@”2”);</p>
+<p>});</p>
+<p>NSLog(@”3”);</p>
+<p>});</p>
+<p>NSLog(@”4”);</p>
+<p>//死循环</p>
+<p>while (1) {</p>
+<p>//</p>
+<p>}<br>}</p>
+<p>打印结果：4，1</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;hr&gt;
+&lt;p&gt;title: 多线程&lt;br&gt;tags: GCD Thread&lt;br&gt;categories: iOS # 配置categories&lt;/p&gt;
+&lt;p&gt;###1.第一种情况：dispatch_sync(dispatch_get_main_queue(), ^{}引起死锁&lt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2016/12/07/Thread/"/>
+    <id>http://yoursite.com/2016/12/07/Thread/</id>
+    <published>2016-12-07T07:04:19.000Z</published>
+    <updated>2016-12-19T06:19:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<hr>
+<p>title: 多线程<br>tags: GCD Thread<br>categories: iOS # 配置categories</p>
+<p>####1.NSThread NSOperation,GCD发展的历程是从早到晚的,NSThread是比较轻量级的，NSOperation是对GCD的封装，GCD比较简单易用，也是苹果比较提倡和推荐的一种方式</p>
+<p>####2.NSThread控制线程的状态比较复杂，NSThead的创建主要有两种方式：</p>
+<ul>
+<li><p>(instancetype)init NS_AVAILABLE(10_5, 2_0) NS_DESIGNATED_INITIALIZER;</p>
+</li>
+<li><p>(instancetype)initWithTarget:(id)target selector:(SEL)selector object:(nullable id)argument NS_AVAILABLE(10_5, 2_0);<br>当然，还有一种比较特殊，就是使用所谓的convenient method，这个方法可以直接生成一个线程并启动它，而且无需为线程的清理负责。这个方法的接口是：</p>
+</li>
+</ul>
+<ul>
+<li>(void)detachNewThreadSelector:(SEL)aSelector toTarget:(id)aTarget withObject:(id)anArgument<br>前两种方法创建后，需要手机启动，启动的方法是：</li>
+</ul>
+<ul>
+<li>(void)start;</li>
+</ul>
+<p>####3.NSOperation有一个“线程池”（NSOperationQueue）的概念,他可以设置最大线程数和线程彼此间的依赖的关系，比较容易控制优先级。</p>
+<p>使用NSOperation⼦类的方式有3种：</p>
+<p>（1）NSInvocationOperation</p>
+<p>（2）NSBlockOperation</p>
+<p>（3）自定义子类继承NSOperation,实现内部相应的⽅法</p>
+<p>注意：操作对象默认在主线程中执行，只有添加到队列中才会开启新的线程。即默认情况下，如果操作没有放到队列中queue中，都是同步执行。只有将NSOperation放到一个NSOperationQueue中,才会异步执行操作</p>
+<p>####4.GCD有一个类似NSOperationQueue的队列dispatch_queue_t，GCD中的队列分为串行和并行队列</p>
+<p>串行队列：只有一个线程，加入到队列中的操作按添加顺序依次执行</p>
+<p>dispatch_queue_t queue_s = dispatch_queue_create(“myQueue”, DISPATCH_QUEUE_SERIAL);<br>并行队列：有多个线程，操作进来之后它会将这些队列安排在可用的处理器上，同时保证先进来的任务优先处理。</p>
+<p>dispatch_queue_t queue = dispatch_queue_create(“com.gcd-group.www”, DISPATCH_QUEUE_CONCURRENT);<br>GCD还有一个队列组dispatch_group_t</p>
+<p>dispatch_group_t group = dispatch_group_create();<br>举例：</p>
+<p>通过一个并发的队列创建一个队列组</p>
+<p>dispatch_queue_t queue = dispatch_queue_create(“com.gcd-group.www”, DISPATCH_QUEUE_CONCURRENT);</p>
+<p>dispatch_group_enter(group);</p>
+<p>dispatch_group_async(group, queue, ^{</p>
+<p>for (int i = 0; i &lt; 10; i++) {</p>
+<p>//            if (i == 9) {</p>
+<pre><code>NSLog(@&quot;11111111&quot;);
+</code></pre><p>//            }</p>
+<p>}</p>
+<p>});</p>
+<p>dispatch_group_leave(group); //所有的11111111都打印完成后，执行其他异步队列组线程队列</p>
+<p>dispatch_group_async(group, queue, ^{</p>
+<p>NSLog(@”22222222”);</p>
+<p>});</p>
+<p>dispatch_group_async(group, queue, ^{</p>
+<p>NSLog(@”33333333”);</p>
+<p>});</p>
+<p>dispatch_group_notify(group, queue, ^{</p>
+<p>NSLog(@”done”);</p>
+<p>});</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;hr&gt;
+&lt;p&gt;title: 多线程&lt;br&gt;tags: GCD Thread&lt;br&gt;categories: iOS # 配置categories&lt;/p&gt;
+&lt;p&gt;####1.NSThread NSOperation,GCD发展的历程是从早到晚的,NSThread是比较轻量级的，NS
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
     <link href="http://yoursite.com/2016/12/07/hello-world/"/>
     <id>http://yoursite.com/2016/12/07/hello-world/</id>
