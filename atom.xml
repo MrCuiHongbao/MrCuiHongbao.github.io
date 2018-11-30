@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-28T06:48:24.000Z</updated>
+  <updated>2018-11-30T03:10:22.576Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,63 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2018/11/30/mac-shell%E7%BB%88%E7%AB%AF%E7%BC%96%E8%BE%91%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BF%AB%E6%8D%B7%E9%94%AE%E2%80%94%E2%80%94%E8%A1%8C%E9%A6%96%EF%BC%8C%E8%A1%8C%E5%B0%BE/"/>
+    <id>http://yoursite.com/2018/11/30/mac-shell终端编辑命令行快捷键——行首，行尾/</id>
+    <published>2018-11-30T02:35:52.770Z</published>
+    <updated>2018-11-30T03:10:22.576Z</updated>
+    
+    <content type="html"><![CDATA[<hr>
+<p>title:mac shell终端编辑命令行快捷键——行首，行尾</p>
+<p>tags:mac shell<br>date:2018-11-30</p>
+<h2 id="categories-iOS-配置categories"><a href="#categories-iOS-配置categories" class="headerlink" title="categories:iOS # 配置categories"></a>categories:iOS # 配置categories</h2><p>mac shell终端编辑命令行快捷键——行首，行尾</p>
+<pre><code>Ctrl + d        删除一个字符，相当于通常的Delete键（命令行若无所有字符，则相当于exit；处理多行标准输入时也表示eof）
+Ctrl + h        退格删除一个字符，相当于通常的Backspace键
+Ctrl + u        删除光标之前到行首的字符
+Ctrl + k        删除光标之前到行尾的字符
+Ctrl + c        取消当前行输入的命令，相当于Ctrl + Break
+Ctrl + a        光标移动到行首（Ahead of line），相当于通常的Home键
+Ctrl + e        光标移动到行尾（End of line）
+Ctrl + f        光标向前(Forward)移动一个字符位置
+Ctrl + b        光标往回(Backward)移动一个字符位置
+Ctrl + l        清屏，相当于执行clear命令
+Ctrl + p        调出命令历史中的前一条（Previous）命令，相当于通常的上箭头
+Ctrl + n        调出命令历史中的下一条（Next）命令，相当于通常的上箭头
+Ctrl + r        显示：号提示，根据用户输入查找相关历史命令（reverse-i-search）
+Ctrl + w        删除从光标位置前到当前所处单词（Word）的开头
+Ctrl + y        粘贴最后一次被删除的单词
+Ctrl + C      中止一个错误的或者发疯的命令
+</code></pre><p> 其他Command-Line技巧提示</p>
+<pre><code>•输入命令open .可以用Finder打开当前的位置。
+</code></pre><p>在Terminal的偏好里面可以设定它的外观和风格,你可以在执行前编辑命令，只需要使用箭头和键盘上的其他字母,没有输入任何命令时，你可以用▲和▼来浏览历史命令。同样可以编辑和再次执行,你也可以使用history命令查看历史记录。</p>
+<pre><code>Command + K    清屏
+
+Command + T     新建标签
+
+Command +W     关闭当前标签页
+
+Command + S     保存终端输出
+
+Command + D     垂直分隔当前标签页
+
+Command + Shift + D       水平分隔当前标签页
+
+Command + shift +  {或}   向左/向右切换标签
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;hr&gt;
+&lt;p&gt;title:mac shell终端编辑命令行快捷键——行首，行尾&lt;/p&gt;
+&lt;p&gt;tags:mac shell&lt;br&gt;date:2018-11-30&lt;/p&gt;
+&lt;h2 id=&quot;categories-iOS-配置categories&quot;&gt;&lt;a href=&quot;#categor
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>关于内存指针的问题</title>
