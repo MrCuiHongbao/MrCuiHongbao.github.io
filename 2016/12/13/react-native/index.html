@@ -4,15 +4,13 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>关于内存指针的问题 | 云淡天蓝’Blog</title>
+    <title>关于react-native的demo如何运行起来... | 云淡天蓝’Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="CuiHongbao">
     
-    <meta name="description" content="1.关于两个数互换问题以下方法方法能否交换两个数成功？为什么？
-int m=1;int n=2;swipe(&amp;amp;m, &amp;amp;n);printf(“————-&amp;gt;:%d—————-&amp;gt;%d”, m,n);
-void swipe(int *p1,int *p2){
-    printf">
+    <meta name="description" content="##1.打开终端输入：git clone https://github.com/facebook/react-native.git下载完成后，在目录中存在下载后的相关文件。
+##2.终端输入：cd react-native &amp;amp;&amp;amp; npm install 出现提示，npm comman">
     
     
     
@@ -275,15 +273,15 @@ void swipe(int *p1,int *p2){
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/12/28/内存指针/" title="关于内存指针的问题" itemprop="url">关于内存指针的问题</a>
+      <a href="/2016/12/13/react-native/" title="关于react-native的demo如何运行起来..." itemprop="url">关于react-native的demo如何运行起来...</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="CuiHongbao">CuiHongbao</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-12-27T16:00:00.000Z" itemprop="datePublished">2016-12-28</time>
-    更新日期:<time datetime="2016-12-28T06:48:24.000Z" itemprop="dateModified">2016-12-28</time>
+    <time datetime="2016-12-13T02:52:56.000Z" itemprop="datePublished">2016-12-13</time>
+    更新日期:<time datetime="2016-12-13T02:52:56.000Z" itemprop="dateModified">2016-12-13</time>
     
   </p>
 </header>
@@ -292,51 +290,42 @@ void swipe(int *p1,int *p2){
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-关于两个数互换问题"><span class="toc-number">1.</span> <span class="toc-text">1.关于两个数互换问题</span></a></li></ol>
+		
 		</div>
 		
-		<h3 id="1-关于两个数互换问题"><a href="#1-关于两个数互换问题" class="headerlink" title="1.关于两个数互换问题"></a>1.关于两个数互换问题</h3><p>以下方法方法能否交换两个数成功？为什么？</p>
-<p>int m=1;<br>int n=2;<br>swipe(&amp;m, &amp;n);<br>printf(“————-&gt;:%d—————-&gt;%d”, m,n);</p>
-<pre><code>void swipe(int *p1,int *p2){
-    printf(&quot;\n---swipe----sizeof:%lu&quot;, sizeof(char));
-    int  *nTemp;//   int nTemp=0;
-    int *p=nTemp;// int *p=&amp;nTemp;
-    *p = *p1;
-    *p1 = *p2;
-    *p2 =*p;
-}
-</code></pre><p>答案：不能交换两个数，nTemp没有分配内存。正确的做法如下：</p>
-<p>第一种做法：</p>
-<pre><code>void swipe(int *p1,int *p2){
-printf(&quot;\n---swipe----sizeof:%lu&quot;, sizeof(char));
-int  nTemp=0;
-int *p=&amp;nTemp;
-*p = *p1;
-*p1 = *p2;
-*p2 =*p;
-}
-</code></pre><p> 第二种做法：</p>
-<pre><code>void swipe(int *p1,int *p2){
-printf(&quot;\n---swipe----sizeof:%lu&quot;, sizeof(char));
-int   nTemp=(int *)malloc(sizeof(int));
-int *p=&amp;nTemp;
-*p = *p1;
-*p1 = *p2;
-*p2 =*p;
-}
-</code></pre>  
+		<p>##1.打开终端输入：git clone <a href="https://github.com/facebook/react-native.git下载完成后，在" target="_blank" rel="external">https://github.com/facebook/react-native.git下载完成后，在</a><br><img src="http://upload-images.jianshu.io/upload_images/2658715-0e28dded6f81eabe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="QQ20160919-0.png">目录中存在下载后的相关文件。</p>
+<p>##2.终端输入：cd react-native &amp;&amp; npm install<br> 出现提示，npm command no found 因为你的mac中 npm没有安装</p>
+<p>###npm是什么？<br>    <li>NPM的全称是Node Package Manager ，是一个NodeJS包管理和分发工具，已经成为了非官方的发布Node模块（包）的标准</li><li></li></p>
+<p>###如何安装npm呢？<br>一：如果你安装了Homebrew<br>如何安装Homebrew见这里：<a href="http://brew.sh/index_zh-cn.html" target="_blank" rel="external">http://brew.sh/index_zh-cn.html</a></p>
+<p>直接使用命令：</p>
+<pre><code>brew install node
+</code></pre><p>二：直接从官网上下载安装<br>点击进入网址，<a href="https://nodejs.org/en/#download" target="_blank" rel="external">https://nodejs.org/en/#download</a><br><img src="http://upload-images.jianshu.io/upload_images/2658715-d79ef78a0d40890d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="QQ20160919-1.png"><br>点击下载“Current”,下载完成后执行*.pkg安装完成即可。<br>安装完成后，就可以运行React-Native Examples下的demo了。<br>ps:如果通过终端命令下载不成功或是下载50%重新下载的导致下载的下载两次的如下图所示：<br><img src="http://upload-images.jianshu.io/upload_images/2658715-1db0da3e691a4f38.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="QQ20160919-2.png"></p>
+<p>则需要删除目录中的react-native，否则运行demo时会出现如下错误</p>
+<pre><code>Failed to build DependencyGraph: @providesModule naming collision:
+ Duplicate module name: AppEventsTest
+ Paths: /Users/Founder/react-native/react-native/IntegrationTests/AppEventsTest.js collides with /Users/Founder/react-native/IntegrationTests/AppEventsTest.js
+ This error is caused by a @providesModule declaration with the same name across two different files.
+ Error: @providesModule naming collision:
+ Duplicate module name: AppEventsTest
+ Paths: /Users/Founder/react-native/react-native/IntegrationTests/AppEventsTest.js collides with /Users/Founder/react-native/IntegrationTests/AppEventsTest.js
+ This error is caused by a @providesModule declaration with the same name across two different files.
+at HasteMap._updateHasteMap (/Users/Founder/react-native/packager/react-packager/src/node-haste/DependencyGraph/HasteMap.js:155:13)
+at module.getName.then.name (/Users/Founder/react-native/packager/react-packager/src/node-haste/DependencyGraph/HasteMap.js:115:31)
+Process terminated. Press &lt;enter&gt; to close the window
+</code></pre><p>如上述步骤，React-Native的demo就可以运行起来了。<br>参考文档：<a href="https://github.com/facebook/react-native" target="_blank" rel="external">facebook_github</a></p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/指针/">指针</a>
+  <span></span> <a href="/tags/react-native/">react-native</a>
   </div>
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/C语言/">C语言</a>
+  <a class="article-category-link" href="/categories/原创总结/">原创总结</a>
 </div>
 
 
@@ -370,11 +359,19 @@ int *p=&amp;nTemp;
 	
 <nav class="article-nav clearfix">
  
+ <div class="next" >
+ <a href="/2016/12/13/猎豹_interView/" title="一些基础的面试题">
+  <strong>NEXT:</strong><br/>
+  <span>
+  一些基础的面试题</span>
+</a>
+</div>
+
 
 <div class="prev">
-<a href="/2016/12/19/GCD/"  title="多线程阻塞">
+<a href="/2016/02/01/hello-world/"  title="Hello World">
  <strong>PREVIOUS:</strong><br/> 
- <span>多线程阻塞
+ <span>Hello World
 </span>
 </a>
 </div>
@@ -383,7 +380,7 @@ int *p=&amp;nTemp;
 
 
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2016/12/28/内存指针/" data-title="关于内存指针的问题" data-url="http://yoursite.com/2016/12/28/内存指针/"></div>
+	<div class="ds-thread" data-thread-key="2016/12/13/react-native/" data-title="关于react-native的demo如何运行起来..." data-url="http://yoursite.com/2016/12/13/react-native/"></div>
 <!-- 多说评论框 end -->
 </div>  
 
@@ -396,7 +393,7 @@ int *p=&amp;nTemp;
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-关于两个数互换问题"><span class="toc-number">1.</span> <span class="toc-text">1.关于两个数互换问题</span></a></li></ol>
+  
   </div>
 
 <div id="asidepart">

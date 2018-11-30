@@ -4,15 +4,12 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>关于内存指针的问题 | 云淡天蓝’Blog</title>
+    <title>一些基础的面试题 | 云淡天蓝’Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="CuiHongbao">
     
-    <meta name="description" content="1.关于两个数互换问题以下方法方法能否交换两个数成功？为什么？
-int m=1;int n=2;swipe(&amp;amp;m, &amp;amp;n);printf(“————-&amp;gt;:%d—————-&amp;gt;%d”, m,n);
-void swipe(int *p1,int *p2){
-    printf">
+    <meta name="description" content="1.retainCount引用问题         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];      label.text = @”retailCount”;      [lab">
     
     
     
@@ -275,15 +272,15 @@ void swipe(int *p1,int *p2){
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/12/28/内存指针/" title="关于内存指针的问题" itemprop="url">关于内存指针的问题</a>
+      <a href="/2016/12/13/猎豹_interView/" title="一些基础的面试题" itemprop="url">一些基础的面试题</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="CuiHongbao">CuiHongbao</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-12-27T16:00:00.000Z" itemprop="datePublished">2016-12-28</time>
-    更新日期:<time datetime="2016-12-28T06:48:24.000Z" itemprop="dateModified">2016-12-28</time>
+    <time datetime="2016-12-13T02:53:04.000Z" itemprop="datePublished">2016-12-13</time>
+    更新日期:<time datetime="2016-12-13T02:53:04.000Z" itemprop="dateModified">2016-12-13</time>
     
   </p>
 </header>
@@ -292,51 +289,36 @@ void swipe(int *p1,int *p2){
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-关于两个数互换问题"><span class="toc-number">1.</span> <span class="toc-text">1.关于两个数互换问题</span></a></li></ol>
+		
 		</div>
 		
-		<h3 id="1-关于两个数互换问题"><a href="#1-关于两个数互换问题" class="headerlink" title="1.关于两个数互换问题"></a>1.关于两个数互换问题</h3><p>以下方法方法能否交换两个数成功？为什么？</p>
-<p>int m=1;<br>int n=2;<br>swipe(&amp;m, &amp;n);<br>printf(“————-&gt;:%d—————-&gt;%d”, m,n);</p>
-<pre><code>void swipe(int *p1,int *p2){
-    printf(&quot;\n---swipe----sizeof:%lu&quot;, sizeof(char));
-    int  *nTemp;//   int nTemp=0;
-    int *p=nTemp;// int *p=&amp;nTemp;
-    *p = *p1;
-    *p1 = *p2;
-    *p2 =*p;
-}
-</code></pre><p>答案：不能交换两个数，nTemp没有分配内存。正确的做法如下：</p>
-<p>第一种做法：</p>
-<pre><code>void swipe(int *p1,int *p2){
-printf(&quot;\n---swipe----sizeof:%lu&quot;, sizeof(char));
-int  nTemp=0;
-int *p=&amp;nTemp;
-*p = *p1;
-*p1 = *p2;
-*p2 =*p;
-}
-</code></pre><p> 第二种做法：</p>
-<pre><code>void swipe(int *p1,int *p2){
-printf(&quot;\n---swipe----sizeof:%lu&quot;, sizeof(char));
-int   nTemp=(int *)malloc(sizeof(int));
-int *p=&amp;nTemp;
-*p = *p1;
-*p1 = *p2;
-*p2 =*p;
-}
+		<p>1.retainCount引用问题<br>         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];<br>      label.text = @”retailCount”;<br>      [label autorelease];<br>      NSLog(@”—-label——%ld”,(long)[label retainCount]);// —-label——1<br>      [self.view addSubview:label];<br>      NSLog(@”—-label——%ld”,(long)[label retainCount]);//—-label——2<br>第一处因为label到autorelease处释放，所以retainCount为1，<br>第二处因为self.view对label的持有，所以retainCount＋1为2；</p>
+<pre><code>    注：1.sizeof操作符的结果类型是size_t，它在头文件中typedef为  unsigned int类型。 
+该类型保证能容纳实现所建立的最大对象的字节大小。 
+2.sizeof是算符，strlen是函数。
+3.&lt;font color=red size=5&gt;sizeof可以用类型做参数，strlen只能  用char*做参数，且必须是以&apos;&apos;\0&apos;&apos;结尾的。&lt;/font&gt;
+sizeof还可以用函数做参数，比如： 
+short f(); 
+printf(&quot;%d\n&quot;, sizeof(f())); 
+输出的结果是sizeof(short)，即2。 
+4.数组做sizeof的参数不退化，传递给strlen就退化为指针了。 
+5.大部分编译程序 在编译的时候就把sizeof计算过了 是类型或是变量的长度这就是sizeof(x)可以用来定义数组维数的原因 
+char str[20]=&quot;0123456789&quot;; 
+int a=strlen(str); //a=10; 
+int b=sizeof(str); //而b=20;
 </code></pre>  
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/指针/">指针</a>
+  <span></span> <a href="/tags/iOS/">iOS</a>
   </div>
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/C语言/">C语言</a>
+  <a class="article-category-link" href="/categories/iOS面试题/">iOS面试题</a>
 </div>
 
 
@@ -370,11 +352,19 @@ int *p=&amp;nTemp;
 	
 <nav class="article-nav clearfix">
  
+ <div class="next" >
+ <a href="/2016/12/19/Thread/" title="多线程NSThread GCD NSOperation">
+  <strong>NEXT:</strong><br/>
+  <span>
+  多线程NSThread GCD NSOperation</span>
+</a>
+</div>
+
 
 <div class="prev">
-<a href="/2016/12/19/GCD/"  title="多线程阻塞">
+<a href="/2016/12/13/react-native/"  title="关于react-native的demo如何运行起来...">
  <strong>PREVIOUS:</strong><br/> 
- <span>多线程阻塞
+ <span>关于react-native的demo如何运行起来...
 </span>
 </a>
 </div>
@@ -383,7 +373,7 @@ int *p=&amp;nTemp;
 
 
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2016/12/28/内存指针/" data-title="关于内存指针的问题" data-url="http://yoursite.com/2016/12/28/内存指针/"></div>
+	<div class="ds-thread" data-thread-key="2016/12/13/猎豹_interView/" data-title="一些基础的面试题" data-url="http://yoursite.com/2016/12/13/猎豹_interView/"></div>
 <!-- 多说评论框 end -->
 </div>  
 
@@ -396,7 +386,7 @@ int *p=&amp;nTemp;
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-关于两个数互换问题"><span class="toc-number">1.</span> <span class="toc-text">1.关于两个数互换问题</span></a></li></ol>
+  
   </div>
 
 <div id="asidepart">

@@ -4,15 +4,14 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>关于内存指针的问题 | 云淡天蓝’Blog</title>
+    <title>多线程阻塞 | 云淡天蓝’Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="CuiHongbao">
     
-    <meta name="description" content="1.关于两个数互换问题以下方法方法能否交换两个数成功？为什么？
-int m=1;int n=2;swipe(&amp;amp;m, &amp;amp;n);printf(“————-&amp;gt;:%d—————-&amp;gt;%d”, m,n);
-void swipe(int *p1,int *p2){
-    printf">
+    <meta name="description" content="1.第一种情况：dispatch_sync(dispatch_get_main_queue(), ^{}引起死锁NSLog输出1后，主队列的同步线程，按照FIFO的原则（先入先出），2排在3后面会等3执行完，但因为同步线程，3又要等2执行完，相互等待成为死锁。
+
+(void)deadLockCase">
     
     
     
@@ -275,15 +274,15 @@ void swipe(int *p1,int *p2){
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/12/28/内存指针/" title="关于内存指针的问题" itemprop="url">关于内存指针的问题</a>
+      <a href="/2016/12/19/GCD/" title="多线程阻塞" itemprop="url">多线程阻塞</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="CuiHongbao">CuiHongbao</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-12-27T16:00:00.000Z" itemprop="datePublished">2016-12-28</time>
-    更新日期:<time datetime="2016-12-28T06:48:24.000Z" itemprop="dateModified">2016-12-28</time>
+    <time datetime="2016-12-19T11:48:09.000Z" itemprop="datePublished">2016-12-19</time>
+    更新日期:<time datetime="2016-12-19T11:48:09.000Z" itemprop="dateModified">2016-12-19</time>
     
   </p>
 </header>
@@ -292,51 +291,92 @@ void swipe(int *p1,int *p2){
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-关于两个数互换问题"><span class="toc-number">1.</span> <span class="toc-text">1.关于两个数互换问题</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-第一种情况：dispatch-sync-dispatch-get-main-queue-引起死锁"><span class="toc-number">1.</span> <span class="toc-text">1.第一种情况：dispatch_sync(dispatch_get_main_queue(), ^{}引起死锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-第二种情况"><span class="toc-number">2.</span> <span class="toc-text">2.第二种情况:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-第三种情况，死循环"><span class="toc-number">3.</span> <span class="toc-text">3.第三种情况，死循环</span></a></li></ol>
 		</div>
 		
-		<h3 id="1-关于两个数互换问题"><a href="#1-关于两个数互换问题" class="headerlink" title="1.关于两个数互换问题"></a>1.关于两个数互换问题</h3><p>以下方法方法能否交换两个数成功？为什么？</p>
-<p>int m=1;<br>int n=2;<br>swipe(&amp;m, &amp;n);<br>printf(“————-&gt;:%d—————-&gt;%d”, m,n);</p>
-<pre><code>void swipe(int *p1,int *p2){
-    printf(&quot;\n---swipe----sizeof:%lu&quot;, sizeof(char));
-    int  *nTemp;//   int nTemp=0;
-    int *p=nTemp;// int *p=&amp;nTemp;
-    *p = *p1;
-    *p1 = *p2;
-    *p2 =*p;
-}
-</code></pre><p>答案：不能交换两个数，nTemp没有分配内存。正确的做法如下：</p>
-<p>第一种做法：</p>
-<pre><code>void swipe(int *p1,int *p2){
-printf(&quot;\n---swipe----sizeof:%lu&quot;, sizeof(char));
-int  nTemp=0;
-int *p=&amp;nTemp;
-*p = *p1;
-*p1 = *p2;
-*p2 =*p;
-}
-</code></pre><p> 第二种做法：</p>
-<pre><code>void swipe(int *p1,int *p2){
-printf(&quot;\n---swipe----sizeof:%lu&quot;, sizeof(char));
-int   nTemp=(int *)malloc(sizeof(int));
-int *p=&amp;nTemp;
-*p = *p1;
-*p1 = *p2;
-*p2 =*p;
-}
-</code></pre>  
+		<h3 id="1-第一种情况：dispatch-sync-dispatch-get-main-queue-引起死锁"><a href="#1-第一种情况：dispatch-sync-dispatch-get-main-queue-引起死锁" class="headerlink" title="1.第一种情况：dispatch_sync(dispatch_get_main_queue(), ^{}引起死锁"></a>1.第一种情况：dispatch_sync(dispatch_get_main_queue(), ^{}引起死锁</h3><p>NSLog输出1后，主队列的同步线程，按照FIFO的原则（先入先出），2排在3后面会等3执行完，但因为同步线程，3又要等2执行完，相互等待成为死锁。</p>
+<ul>
+<li><p>(void)deadLockCase1 {</p>
+<p>  NSLog(@”1”);</p>
+</li>
+</ul>
+<p>dispatch_sync(dispatch_get_main_queue(), ^{</p>
+<pre><code>  NSLog(@&quot;2&quot;);
+
+});
+
+ NSLog(@&quot;3&quot;);
+</code></pre><p>}<br>解决办法：把同步线程放在全局队列里，即可解决。</p>
+<ul>
+<li>(void)deadLockCase2 {</li>
+</ul>
+<p>NSLog(@”1”);</p>
+<p>//3会等2，因为2在全局并行队列里，不需要等待3，这样2执行完回到主队列，3就开始执行</p>
+<p>dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{</p>
+<p>NSLog(@”2”);</p>
+<p>});</p>
+<p>NSLog(@”3”);</p>
+<p>}</p>
+<h3 id="2-第二种情况"><a href="#2-第二种情况" class="headerlink" title="2.第二种情况:"></a>2.第二种情况:</h3><ul>
+<li>(void)deadLockCase2 {</li>
+</ul>
+<p>dispatch_queue_t serialQueue = dispatch_queue_create(“com.starming.gcddemo.serialqueue”, DISPATCH_QUEUE_SERIAL);</p>
+<p>NSLog(@”1”);</p>
+<p>dispatch_async(serialQueue, ^{//异步线程</p>
+<p>NSLog(@”2”);</p>
+<p>//串行队列里面同步一个串行队列就会死锁</p>
+<p>dispatch_sync(serialQueue, ^{</p>
+<p>NSLog(@”3”);</p>
+<p>});</p>
+<p>NSLog(@”4”);</p>
+<p>});</p>
+<p>NSLog(@”5”);</p>
+<p>}<br>打印结果：1，5，2</p>
+<p>解决办法:</p>
+<ul>
+<li>(void)deadLockCase4 {</li>
+</ul>
+<p>NSLog(@”1”);</p>
+<p>dispatch_async(dispatch_get_global_queue(0, 0), ^{</p>
+<p>NSLog(@”2”);</p>
+<p>//将同步的串行队列放到另外一个线程就能够解决</p>
+<p>dispatch_sync(dispatch_get_main_queue(), ^{</p>
+<p>NSLog(@”3”);</p>
+<p>});</p>
+<p>NSLog(@”4”);</p>
+<p>});</p>
+<p>NSLog(@”5”);</p>
+<p>}</p>
+<h3 id="3-第三种情况，死循环"><a href="#3-第三种情况，死循环" class="headerlink" title="3.第三种情况，死循环"></a>3.第三种情况，死循环</h3><ul>
+<li>(void)deadLockCase3 {</li>
+</ul>
+<p>dispatch_async(dispatch_get_global_queue(0, 0), ^{</p>
+<p>NSLog(@”1”);</p>
+<p>//回到主线程发现死循环后面就没法执行了</p>
+<p>dispatch_sync(dispatch_get_main_queue(), ^{</p>
+<p>NSLog(@”2”);</p>
+<p>});</p>
+<p>NSLog(@”3”);</p>
+<p>});</p>
+<p>NSLog(@”4”);</p>
+<p>//死循环</p>
+<p>while (1) {</p>
+<p>//</p>
+<p>}<br>}</p>
+<p>打印结果：4，1</p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/指针/">指针</a>
+  <span></span> <a href="/tags/GCD/">GCD</a>
   </div>
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/C语言/">C语言</a>
+  <a class="article-category-link" href="/categories/iOS/">iOS</a>
 </div>
 
 
@@ -370,11 +410,19 @@ int *p=&amp;nTemp;
 	
 <nav class="article-nav clearfix">
  
+ <div class="next" >
+ <a href="/2016/12/28/内存指针/" title="关于内存指针的问题">
+  <strong>NEXT:</strong><br/>
+  <span>
+  关于内存指针的问题</span>
+</a>
+</div>
+
 
 <div class="prev">
-<a href="/2016/12/19/GCD/"  title="多线程阻塞">
+<a href="/2016/12/19/Delegate_KVO_Notification/"  title="Delegate  KVO   Notification区别">
  <strong>PREVIOUS:</strong><br/> 
- <span>多线程阻塞
+ <span>Delegate  KVO   Notification区别
 </span>
 </a>
 </div>
@@ -383,7 +431,7 @@ int *p=&amp;nTemp;
 
 
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2016/12/28/内存指针/" data-title="关于内存指针的问题" data-url="http://yoursite.com/2016/12/28/内存指针/"></div>
+	<div class="ds-thread" data-thread-key="2016/12/19/GCD/" data-title="多线程阻塞" data-url="http://yoursite.com/2016/12/19/GCD/"></div>
 <!-- 多说评论框 end -->
 </div>  
 
@@ -396,7 +444,7 @@ int *p=&amp;nTemp;
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-关于两个数互换问题"><span class="toc-number">1.</span> <span class="toc-text">1.关于两个数互换问题</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-第一种情况：dispatch-sync-dispatch-get-main-queue-引起死锁"><span class="toc-number">1.</span> <span class="toc-text">1.第一种情况：dispatch_sync(dispatch_get_main_queue(), ^{}引起死锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-第二种情况"><span class="toc-number">2.</span> <span class="toc-text">2.第二种情况:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-第三种情况，死循环"><span class="toc-number">3.</span> <span class="toc-text">3.第三种情况，死循环</span></a></li></ol>
   </div>
 
 <div id="asidepart">

@@ -68,54 +68,10 @@ int *p=&amp;nTemp;
   </entry>
   
   <entry>
-    <title>Delegate  KVO   Notification区别</title>
-    <link href="http://yoursite.com/2016/12/19/Delegate_KVO_Notification/"/>
-    <id>http://yoursite.com/2016/12/19/Delegate_KVO_Notification/</id>
-    <published>2016-12-19T08:03:30.000Z</published>
-    <updated>2016-12-19T11:43:44.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="在iOS开发过程中，类之间的通信通常有三种："><a href="#在iOS开发过程中，类之间的通信通常有三种：" class="headerlink" title="在iOS开发过程中，类之间的通信通常有三种："></a>在iOS开发过程中，类之间的通信通常有三种：</h3><pre><code>1.delegate 代理
-2.Notification 通知
-3.KVO 键值观察者
-</code></pre><h3 id="delegate-通常发送者和接收者的关系是一一对应的"><a href="#delegate-通常发送者和接收者的关系是一一对应的" class="headerlink" title="delegate:通常发送者和接收者的关系是一一对应的"></a>delegate:通常发送者和接收者的关系是<font color="red">一一</font>对应的</h3><pre><code>1.代理的目的是改变或控制传递链，允许一个类在特定的时间内通知其他的类，而不需要获取该类的指针.
-2.可以减少框架的复杂度，消息的发送着(sender)和消息的接收者(Receiver)对某个事件的委托,如按钮的点击实现实现的代理
-</code></pre><h3 id="Notification-观察者模式，一对多，通常发送者和接收者是多对多的关系，发送者不关心消息是否送达，接收者也不能影响发送者的行为"><a href="#Notification-观察者模式，一对多，通常发送者和接收者是多对多的关系，发送者不关心消息是否送达，接收者也不能影响发送者的行为" class="headerlink" title="Notification:观察者模式，一对多，通常发送者和接收者是多对多的关系，发送者不关心消息是否送达，接收者也不能影响发送者的行为"></a>Notification:观察者模式，<font color="red">一对多</font>，通常发送者和接收者是多对多的关系，发送者不关心消息是否送达，接收者也不能影响发送者的行为</h3><h3 id="KVO-观察者模式-键值观察机制，一对多，提供观察者某一属性的变化，极大的简化了代码"><a href="#KVO-观察者模式-键值观察机制，一对多，提供观察者某一属性的变化，极大的简化了代码" class="headerlink" title="KVO:观察者模式,键值观察机制，一对多，提供观察者某一属性的变化，极大的简化了代码"></a>KVO:观察者模式,键值观察机制，<font color="red">一对多</font>，提供观察者某一属性的变化，极大的简化了代码</h3><h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><p>Delgate:</p>
-<pre><code>1.delegate的效率比Notification效率高，delegate只是调用时寻找回调地址,NSNotification常驻内存
-2.delegate是一对一对应的
-3.delegate代码规范，严谨，如协议的定义和实现
-4.一个类中可以实现多个协议，每个协议对应不通的delegate，如UITableViewDelegate,UITextFieldDelegate
-5.delegate的定义和实现比较复杂，如协议，delegate属性
-</code></pre><p>Notification:</p>
-<pre><code>1.实现简单，不需要太复杂的代码
-2.notification是一对多关系，一个对象发出通知，多个对象反应，发送者不关心接收者是否收到通知，接收者不能影响发送者的发送状态
-3.notification释放对象的时候需要在注册中心释放，不释放即常驻内存
-4.在调试的时候一对多时，很难同步跟踪多个对象
-5.通知发出后，发送者不能收到接收者的任何反馈..
-</code></pre><p>KVO</p>
-<pre><code>1.能够提供一种简单方法实现两个对象间的同步，例如:model和View之间的同步
-2.能够提供属性的现在值和先前值
-3.可以实现一对多
-4.当释放观察者时不需要移除观察者
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;在iOS开发过程中，类之间的通信通常有三种：&quot;&gt;&lt;a href=&quot;#在iOS开发过程中，类之间的通信通常有三种：&quot; class=&quot;headerlink&quot; title=&quot;在iOS开发过程中，类之间的通信通常有三种：&quot;&gt;&lt;/a&gt;在iOS开发过程中，类之间的通信通常有三
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
-    
-    
-      <category term="Delegate  KVO   Notification" scheme="http://yoursite.com/tags/Delegate-KVO-Notification/"/>
-    
-  </entry>
-  
-  <entry>
     <title>多线程阻塞</title>
-    <link href="http://yoursite.com/2016/12/07/GCD/"/>
-    <id>http://yoursite.com/2016/12/07/GCD/</id>
-    <published>2016-12-07T07:04:19.000Z</published>
+    <link href="http://yoursite.com/2016/12/19/GCD/"/>
+    <id>http://yoursite.com/2016/12/19/GCD/</id>
+    <published>2016-12-19T11:48:09.000Z</published>
     <updated>2016-12-19T11:48:09.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="1-第一种情况：dispatch-sync-dispatch-get-main-queue-引起死锁"><a href="#1-第一种情况：dispatch-sync-dispatch-get-main-queue-引起死锁" class="headerlink" title="1.第一种情况：dispatch_sync(dispatch_get_main_queue(), ^{}引起死锁"></a>1.第一种情况：dispatch_sync(dispatch_get_main_queue(), ^{}引起死锁</h3><p>NSLog输出1后，主队列的同步线程，按照FIFO的原则（先入先出），2排在3后面会等3执行完，但因为同步线程，3又要等2执行完，相互等待成为死锁。</p>
@@ -204,10 +160,54 @@ int *p=&amp;nTemp;
   </entry>
   
   <entry>
+    <title>Delegate  KVO   Notification区别</title>
+    <link href="http://yoursite.com/2016/12/19/Delegate_KVO_Notification/"/>
+    <id>http://yoursite.com/2016/12/19/Delegate_KVO_Notification/</id>
+    <published>2016-12-19T11:43:44.000Z</published>
+    <updated>2016-12-19T11:43:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="在iOS开发过程中，类之间的通信通常有三种："><a href="#在iOS开发过程中，类之间的通信通常有三种：" class="headerlink" title="在iOS开发过程中，类之间的通信通常有三种："></a>在iOS开发过程中，类之间的通信通常有三种：</h3><pre><code>1.delegate 代理
+2.Notification 通知
+3.KVO 键值观察者
+</code></pre><h3 id="delegate-通常发送者和接收者的关系是一一对应的"><a href="#delegate-通常发送者和接收者的关系是一一对应的" class="headerlink" title="delegate:通常发送者和接收者的关系是一一对应的"></a>delegate:通常发送者和接收者的关系是<font color="red">一一</font>对应的</h3><pre><code>1.代理的目的是改变或控制传递链，允许一个类在特定的时间内通知其他的类，而不需要获取该类的指针.
+2.可以减少框架的复杂度，消息的发送着(sender)和消息的接收者(Receiver)对某个事件的委托,如按钮的点击实现实现的代理
+</code></pre><h3 id="Notification-观察者模式，一对多，通常发送者和接收者是多对多的关系，发送者不关心消息是否送达，接收者也不能影响发送者的行为"><a href="#Notification-观察者模式，一对多，通常发送者和接收者是多对多的关系，发送者不关心消息是否送达，接收者也不能影响发送者的行为" class="headerlink" title="Notification:观察者模式，一对多，通常发送者和接收者是多对多的关系，发送者不关心消息是否送达，接收者也不能影响发送者的行为"></a>Notification:观察者模式，<font color="red">一对多</font>，通常发送者和接收者是多对多的关系，发送者不关心消息是否送达，接收者也不能影响发送者的行为</h3><h3 id="KVO-观察者模式-键值观察机制，一对多，提供观察者某一属性的变化，极大的简化了代码"><a href="#KVO-观察者模式-键值观察机制，一对多，提供观察者某一属性的变化，极大的简化了代码" class="headerlink" title="KVO:观察者模式,键值观察机制，一对多，提供观察者某一属性的变化，极大的简化了代码"></a>KVO:观察者模式,键值观察机制，<font color="red">一对多</font>，提供观察者某一属性的变化，极大的简化了代码</h3><h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><p>Delgate:</p>
+<pre><code>1.delegate的效率比Notification效率高，delegate只是调用时寻找回调地址,NSNotification常驻内存
+2.delegate是一对一对应的
+3.delegate代码规范，严谨，如协议的定义和实现
+4.一个类中可以实现多个协议，每个协议对应不通的delegate，如UITableViewDelegate,UITextFieldDelegate
+5.delegate的定义和实现比较复杂，如协议，delegate属性
+</code></pre><p>Notification:</p>
+<pre><code>1.实现简单，不需要太复杂的代码
+2.notification是一对多关系，一个对象发出通知，多个对象反应，发送者不关心接收者是否收到通知，接收者不能影响发送者的发送状态
+3.notification释放对象的时候需要在注册中心释放，不释放即常驻内存
+4.在调试的时候一对多时，很难同步跟踪多个对象
+5.通知发出后，发送者不能收到接收者的任何反馈..
+</code></pre><p>KVO</p>
+<pre><code>1.能够提供一种简单方法实现两个对象间的同步，例如:model和View之间的同步
+2.能够提供属性的现在值和先前值
+3.可以实现一对多
+4.当释放观察者时不需要移除观察者
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;在iOS开发过程中，类之间的通信通常有三种：&quot;&gt;&lt;a href=&quot;#在iOS开发过程中，类之间的通信通常有三种：&quot; class=&quot;headerlink&quot; title=&quot;在iOS开发过程中，类之间的通信通常有三种：&quot;&gt;&lt;/a&gt;在iOS开发过程中，类之间的通信通常有三
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+    
+    
+      <category term="Delegate  KVO   Notification" scheme="http://yoursite.com/tags/Delegate-KVO-Notification/"/>
+    
+  </entry>
+  
+  <entry>
     <title>多线程NSThread GCD NSOperation</title>
-    <link href="http://yoursite.com/2016/12/07/Thread/"/>
-    <id>http://yoursite.com/2016/12/07/Thread/</id>
-    <published>2016-12-07T07:04:19.000Z</published>
+    <link href="http://yoursite.com/2016/12/19/Thread/"/>
+    <id>http://yoursite.com/2016/12/19/Thread/</id>
+    <published>2016-12-19T11:40:48.000Z</published>
     <updated>2016-12-19T11:40:48.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="1-NSThread-NSOperation-GCD发展的历程是从早到晚的-NSThread是比较轻量级的，NSOperation是对GCD的封装，GCD比较简单易用，也是苹果比较提倡和推荐的一种方式"><a href="#1-NSThread-NSOperation-GCD发展的历程是从早到晚的-NSThread是比较轻量级的，NSOperation是对GCD的封装，GCD比较简单易用，也是苹果比较提倡和推荐的一种方式" class="headerlink" title="1.NSThread NSOperation,GCD发展的历程是从早到晚的,NSThread是比较轻量级的，NSOperation是对GCD的封装，GCD比较简单易用，也是苹果比较提倡和推荐的一种方式"></a>1.NSThread NSOperation,GCD发展的历程是从早到晚的,NSThread是比较轻量级的，NSOperation是对GCD的封装，GCD比较简单易用，也是苹果比较提倡和推荐的一种方式</h4><h4 id="2-NSThread控制线程的状态比较复杂，NSThead的创建主要有两种方式："><a href="#2-NSThread控制线程的状态比较复杂，NSThead的创建主要有两种方式：" class="headerlink" title="2.NSThread控制线程的状态比较复杂，NSThead的创建主要有两种方式："></a>2.NSThread控制线程的状态比较复杂，NSThead的创建主要有两种方式：</h4><ul>
@@ -268,9 +268,9 @@ int *p=&amp;nTemp;
   
   <entry>
     <title>一些基础的面试题</title>
-    <link href="http://yoursite.com/2016/09/22/%E7%8C%8E%E8%B1%B9_interView/"/>
-    <id>http://yoursite.com/2016/09/22/猎豹_interView/</id>
-    <published>2016-09-22T09:11:59.000Z</published>
+    <link href="http://yoursite.com/2016/12/13/%E7%8C%8E%E8%B1%B9_interView/"/>
+    <id>http://yoursite.com/2016/12/13/猎豹_interView/</id>
+    <published>2016-12-13T02:53:04.000Z</published>
     <updated>2016-12-13T02:53:04.000Z</updated>
     
     <content type="html"><![CDATA[<p>1.retainCount引用问题<br>         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];<br>      label.text = @”retailCount”;<br>      [label autorelease];<br>      NSLog(@”—-label——%ld”,(long)[label retainCount]);// —-label——1<br>      [self.view addSubview:label];<br>      NSLog(@”—-label——%ld”,(long)[label retainCount]);//—-label——2<br>第一处因为label到autorelease处释放，所以retainCount为1，<br>第二处因为self.view对label的持有，所以retainCount＋1为2；</p>
@@ -304,9 +304,9 @@ int b=sizeof(str); //而b=20;
   
   <entry>
     <title>关于react-native的demo如何运行起来...</title>
-    <link href="http://yoursite.com/2016/09/19/react-native/"/>
-    <id>http://yoursite.com/2016/09/19/react-native/</id>
-    <published>2016-09-19T07:48:27.000Z</published>
+    <link href="http://yoursite.com/2016/12/13/react-native/"/>
+    <id>http://yoursite.com/2016/12/13/react-native/</id>
+    <published>2016-12-13T02:52:56.000Z</published>
     <updated>2016-12-13T02:52:56.000Z</updated>
     
     <content type="html"><![CDATA[<p>##1.打开终端输入：git clone <a href="https://github.com/facebook/react-native.git下载完成后，在" target="_blank" rel="external">https://github.com/facebook/react-native.git下载完成后，在</a><br><img src="http://upload-images.jianshu.io/upload_images/2658715-0e28dded6f81eabe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="QQ20160919-0.png">目录中存在下载后的相关文件。</p>
